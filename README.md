@@ -132,7 +132,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Usage :joystick:
 
-Please create a new `.env` file from `.env.example` file.
+Please create a new `.env` file from the `.env.example` file.
 
 Eg:
 
@@ -145,18 +145,18 @@ GMAIL_PASSKEY =
 EMAIL_ADDRESS =
 ```
 
-### Then, Customize data in the `utils/data` [folder](https://github.com/mohammad-fahad/developer-portfolio/tree/main/utils/data).
+### Then, customize data in the `utils/data` [folder](https://github.com/mohammad-fahad/developer-portfolio/tree/main/utils/data).
 
 Eg:
 
-```javascript
+```JavaScript
 export const personalData = {
   name: "Mohammad Fahad",
   profile: "/mohammad-fahad.jpg",
   designation: "Frontend Developer",
   description: "My name is Mohammaed Fahad....",
   email: "mail.mohammadfahad@gmail.com",
-  phone: "+880795555018",
+  phone: "+8801795555018",
   address: "Dhaka, Bangladesh",
   github: "https://github.com/mohammad-fahad",
   facebook: "https://www.facebook.com/mohammadfahad018",
@@ -232,7 +232,7 @@ To display your blog posts from dev.to on the portfolio:
 
 1. Set your `devUsername` in the `utils/data.js` file to your dev.to username.
 2. The application will automatically fetch your latest blog posts and display them in the **BLOG** section.
-3. Ensure your blogs are publicly visible on dev.to, and the application will fetch them using the dev.to API.
+3. Ensure your blogs are publicly visible on dev.to, and the application will fetch them using the dev.to the API.
 
 ---
 
@@ -272,4 +272,4 @@ npm install -g next
 
 This installs Next.js globally
 
-then do the usual `npm run dev`
+Then do the usual `npm run dev`
