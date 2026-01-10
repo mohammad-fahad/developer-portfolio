@@ -4,6 +4,7 @@ import { CgGitFork } from "react-icons/cg";
 import { IoStar } from "react-icons/io5";
 
 function Footer() {
+
   return (
     <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
       <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
@@ -12,12 +13,12 @@ function Footer() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm">
-            © Developer Portfolio by <Link target="_blank" href="https://www.linkedin.com/in/mohammad--fahad/" className="text-[#16f2b3]">Moyhammad Fahad</Link>
+            © Developer Portfolio by <Link target="_blank" href="https://www.linkedin.com/in/mohammad--fahad/" className="text-[#16f2b3]">Moyhammad Fahad </Link>
           </p>
-          <div className="flex items-center gap-5">
+          {/* <div className="flex items-center gap-5">
             <Link href="/privacy-policy" className="text-sm hover:text-[#16f2b3]" >Privacy Policy</Link>
             <Link href="/disclaimer" className="text-sm hover:text-[#16f2b3]">Disclaimer</Link>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-5">
             <Link

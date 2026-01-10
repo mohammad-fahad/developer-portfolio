@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
             }}
           />
         )}
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
           <ToastContainer />
           <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
             <Navbar />
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
             <ScrollToTop />
           </main>
           <Footer />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
