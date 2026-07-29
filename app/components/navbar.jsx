@@ -8,6 +8,7 @@ import { personalData } from "@/utils/data/personal-data";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/#projects" },
+  { label: "EduFlow", href: "/work/eduflow" },
   { label: "Experience", href: "/#experience" },
   { label: "Writing", href: "/#blogs" },
   { label: "Contact", href: "/#contact" },
