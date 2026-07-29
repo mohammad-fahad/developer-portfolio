@@ -3,34 +3,43 @@
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 
-
 function AboutSection() {
   return (
-    <div id="about" className="my-12 lg:my-16 relative">
-      <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          ABOUT ME
+    <div id="about" className="relative z-50 my-16 lg:my-28">
+      {/* Section header */}
+      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+        <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
+          ABOUT
         </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+        <span className="w-full h-[2px] bg-[#1a1443]"></span>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-        <div className="order-2 lg:order-1">
-          <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-            Who I am?
+
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-16">
+        <div className="lg:col-span-3 order-2 lg:order-1">
+          <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2 sm:mb-3">
+            Who I am
           </p>
-          <p className="text-gray-200 text-sm lg:text-lg">
-            {personalData?.description}
-          </p>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-4 sm:mb-6">
+            Engineer focused on building products that scale
+          </h2>
+          <div className="text-gray-300 text-sm sm:text-base leading-relaxed space-y-3 sm:space-y-4">
+            <p>{personalData?.description}</p>
+          </div>
         </div>
-        <div className="flex justify-center order-1 lg:order-2">
-          <Image
-            src={personalData?.profile}
-            width={373}
-            height={280}
-            loading="lazy"
-            alt="Mohammad Fahad"
-            className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer"
-          />
+        <div className="lg:col-span-2 flex justify-center order-1 lg:order-2 mb-4 lg:mb-0">
+          <div className="relative group w-full max-w-[320px] sm:max-w-none">
+            <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-violet-400 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
+            <div className="relative rounded-2xl overflow-hidden border border-gray-800">
+              <Image
+                src={personalData?.profile}
+                width={373}
+                height={280}
+                loading="lazy"
+                alt="Mohammad Fahad"
+                className="w-full h-auto rounded-2xl transition-all duration-700 grayscale hover:grayscale-0 hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

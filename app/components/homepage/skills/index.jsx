@@ -1,69 +1,83 @@
 // @flow strict
 
-import { skillsData } from "@/utils/data/skills";
-import { skillsImage } from "@/utils/skill-image";
-import Image from "next/image";
-import Marquee from "react-fast-marquee";
+import { FiServer, FiLayout, FiShield, FiTerminal } from "react-icons/fi";
+
+const capabilityCategories = [
+  {
+    icon: <FiLayout size={18} />,
+    title: "Frontend Architecture",
+    description: "Building responsive, accessible, and performant user interfaces with modern component architecture.",
+    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "Component Design", "Responsive Systems"],
+  },
+  {
+    icon: <FiServer size={18} />,
+    title: "Backend & Data",
+    description: "Designing scalable APIs, data models, and server-side logic for production applications.",
+    skills: ["Node.js", "Express", "Prisma", "PostgreSQL", "REST APIs", "Supabase"],
+  },
+  {
+    icon: <FiShield size={18} />,
+    title: "SaaS Engineering",
+    description: "Architecting multi-tenant systems, role-based access control, and secure authentication flows.",
+    skills: ["Multi-tenancy", "RBAC", "Authentication", "Authorization", "Workflow Design", "API Security"],
+  },
+  {
+    icon: <FiTerminal size={18} />,
+    title: "Production Engineering",
+    description: "Shipping reliable software with testing, CI/CD, monitoring, and performance optimization.",
+    skills: ["Testing", "CI/CD", "Docker", "Performance", "Security Hardening", "Deployment"],
+  },
+];
 
 function Skills() {
   return (
-    <div id="skills" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-      <div className="w-[100px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl  opacity-20"></div>
-
-      <div className="flex justify-center -translate-y-[1px]">
-        <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
-        </div>
+    <div id="skills" className="relative z-50 my-16 lg:my-28">
+      {/* Section header */}
+      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+        <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
+          EXPERTISE
+        </span>
+        <span className="w-full h-[2px] bg-[#1a1443]"></span>
       </div>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Skills
-          </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-        </div>
+      <div className="mb-6 sm:mb-10">
+        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2 sm:mb-3">
+          Technical capabilities
+        </p>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+          What I build with
+        </h2>
       </div>
 
-      <div className="w-full my-12">
-        <Marquee
-          gradient={false}
-          speed={80}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          delay={0}
-          play={true}
-          direction="left"
-        >
-          {skillsData.map((skill, id) => (
-            <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
-              key={id}>
-              <div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-8 sm:h-10 md:h-12 lg:h-16">
-                    <Image
-                      src={skillsImage(skill)?.src}
-                      alt={skill || "Skill Image"}
-                      width={60}
-                      height={40}
-                      loading="lazy"
-                      className="h-full w-auto rounded-lg"
-                    />
-                  </div>
-                  <p className="text-white text-sm sm:text-lg">
-                    {skill}
-                  </p>
-                </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+        {capabilityCategories.map((category, i) => (
+          <div
+            key={i}
+            className="p-4 sm:p-5 lg:p-6 rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+              <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-colors duration-300 flex-shrink-0">
+                {category.icon}
               </div>
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">
+                {category.title}
+              </h3>
             </div>
-          ))}
-        </Marquee>
+            <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 leading-relaxed">
+              {category.description}
+            </p>
+            <div className="flex flex-wrap gap-1 sm:gap-1.5">
+              {category.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-md border border-gray-700/50"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

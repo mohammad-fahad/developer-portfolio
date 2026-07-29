@@ -1,78 +1,123 @@
 'use client';
 import { projectsData } from '@/utils/data/projects-data';
-import ProjectCard from './project-card';
-import SingleProject from './single-project';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { useState } from 'react';
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 4);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 4; // show 6 per page (2 rows of 3)
-
-  // Calculate visible projects
-  const indexOfLast = currentPage * projectsPerPage;
-  const indexOfFirst = indexOfLast - projectsPerPage;
-  const currentProjects = projectsData.slice(indexOfFirst, indexOfLast);
-
-  const totalPages = Math.ceil(projectsData.length / projectsPerPage);
   return (
-    <div id='projects' className="relative z-50  my-12 lg:my-24">
-      <div className="sticky top-10">
-        <div className="w-[80px] h-[80px] bg-violet-100 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl  opacity-30"></div>
-        <div className="flex items-center justify-start relative">
-          <span className="bg-[#1a1443] absolute left-0  w-fit text-white px-5 py-3 text-xl rounded-md">
-            PROJECTS
-          </span>
-          <span className="w-full h-[2px] bg-[#1a1443]"></span>
-        </div>
+    <div id="projects" className="relative z-50 my-16 lg:my-28">
+      {/* Section header */}
+      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+        <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
+          WORK
+        </span>
+        <span className="w-full h-[2px] bg-[#1a1443]"></span>
       </div>
 
-      <div className="pt-24">
-        <div className="grid gap-6 sm:grid-cols-2 ">
-          {currentProjects.map((project, index) => (
-            <div
-              id={`sticky-card-${index + 1}`}
-              key={index}
-              className="sticky-card w-full mx-auto max-w-2xl sticky"
-            >
-              <div className="box-border flex items-center justify-center rounded shadow-[0_0_30px_0_rgba(0,0,0,0.3)] transition-all duration-[0.5s]">
-                <SingleProject project={project} />
+      <div className="mb-6 sm:mb-10">
+        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2 sm:mb-3">
+          Selected projects
+        </p>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+          Products and systems I have engineered
+        </h2>
+        <p className="text-gray-400 mt-2 sm:mt-3 max-w-2xl text-sm sm:text-base">
+          A collection of applications focused on usability, scalability, and production reliability.
+        </p>
+      </div>
+
+      <div className="space-y-4 sm:space-y-5">
+        {displayedProjects.map((project, index) => (
+          <div
+            key={project.id}
+            className="group rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden"
+          >
+            <div className="p-4 sm:p-5 lg:p-6">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-3">
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] sm:text-xs font-medium text-violet-400 bg-violet-500/10 px-1.5 sm:px-2 py-0.5 rounded-full border border-violet-500/20 truncate max-w-[160px] sm:max-w-none">
+                      {project.role}
+                    </span>
+                    <span className="text-[10px] sm:text-xs text-gray-500 flex-shrink-0">0{index + 1}</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white group-hover:text-violet-300 transition-colors duration-300">
+                    {project.name}
+                  </h3>
+                </div>
+
+                {/* Links */}
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
+                    >
+                      Live Demo
+                      <FiExternalLink size={10} />
+                    </a>
+                  )}
+                  {project.code && (
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
+                    >
+                      <FiGithub size={10} />
+                      Code
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3 sm:mb-4">
+                {project.description}
+              </p>
+
+              {/* Engineering highlights */}
+              {project.highlights && project.highlights.length > 0 && (
+                <div className="mb-3 sm:mb-4 space-y-1 sm:space-y-1.5">
+                  {project.highlights.map((h, i) => (
+                    <div key={i} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-gray-400">
+                      <span className="w-0.5 sm:w-1 h-0.5 sm:h-1 rounded-full bg-violet-400 mt-1.5 sm:mt-2 flex-shrink-0" />
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Tech stack */}
+              <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                {project.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-medium text-gray-400 bg-gray-800/40 rounded-md border border-gray-700/40"
+                  >
+                    {tool}
+                  </span>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center gap-3 mt-8">
-          <button
-            onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-            disabled={currentPage === 1}
-            className="px-4 py-2 rounded-lg bg-[#231d4b] text-[#EFF3F4] disabled:opacity-40"
-          >
-            Prev
-          </button>
-
-          {/* Page numbers */}
-          {[...Array(totalPages)].map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentPage(i + 1)}
-              className={`px-3 py-1 rounded-md ${currentPage === i + 1
-                ? "bg-violet-600 text-white"
-                : "bg-[#0f0b24] text-[#EFF3F4]"
-                }`}
-            >
-              {i + 1}
-            </button>
-          ))}
-
-          <button
-            onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-            disabled={currentPage === totalPages}
-            className="px-4 py-2 rounded-lg bg-[#231d4b] text-[#EFF3F4] disabled:opacity-40"
-          >
-            Next
-          </button>
-        </div>
+          </div>
+        ))}
       </div>
+
+      {projectsData.length > 4 && (
+        <div className="flex justify-center mt-6 sm:mt-8">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-gray-300 bg-gray-800/40 rounded-lg border border-gray-700/50 hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
+          >
+            {showAll ? "Show Less" : `View All Projects (${projectsData.length})`}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

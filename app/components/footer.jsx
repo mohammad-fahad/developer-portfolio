@@ -1,46 +1,58 @@
 // @flow strict
 import Link from 'next/link';
-import { CgGitFork } from "react-icons/cg";
-import { IoStar } from "react-icons/io5";
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { MdAlternateEmail } from 'react-icons/md';
+import { personalData } from '@/utils/data/personal-data';
 
 function Footer() {
-
   return (
-    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
-        <div className="flex justify-center -z-40">
-          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-sm">
-            © Developer Portfolio by <Link target="_blank" href="https://www.linkedin.com/in/mohammad--fahad/" className="text-[#16f2b3]">Moyhammad Fahad </Link>
+    <div className="relative border-t bg-[#0d1224] border-gray-800 text-white">
+      <div className="mx-auto px-4 sm:px-6 lg:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 sm:py-8 lg:py-12">
+        <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+          {/* Tagline */}
+          <p className="text-xs sm:text-sm text-gray-400 max-w-xs sm:max-w-md">
+            Building scalable web and SaaS applications with modern full-stack technologies.
           </p>
-          {/* <div className="flex items-center gap-5">
-            <Link href="/privacy-policy" className="text-sm hover:text-[#16f2b3]" >Privacy Policy</Link>
-            <Link href="/disclaimer" className="text-sm hover:text-[#16f2b3]">Disclaimer</Link>
-          </div> */}
 
-          <div className="flex items-center gap-5">
+          {/* Social links */}
+          <div className="flex items-center gap-3 sm:gap-4">
             <Link
               target="_blank"
-              href="https://github.com/mohammad-fahad/developer-portfolio"
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
+              href={personalData.github}
+              className="text-gray-400 hover:text-violet-300 transition-colors duration-300"
+              aria-label="GitHub"
             >
-              <IoStar />
-              <span>Star</span>
+              <BsGithub size={18} />
             </Link>
             <Link
               target="_blank"
-              href="https://github.com/mohammad-fahad/developer-portfolio/fork"
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
+              href={personalData.linkedIn}
+              className="text-gray-400 hover:text-violet-300 transition-colors duration-300"
+              aria-label="LinkedIn"
             >
-              <CgGitFork />
-              <span>Fork</span>
+              <BsLinkedin size={18} />
             </Link>
+            <Link
+              href={`mailto:${personalData.email}`}
+              className="text-gray-400 hover:text-violet-300 transition-colors duration-300"
+              aria-label="Email"
+            >
+              <MdAlternateEmail size={18} />
+            </Link>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-[10px] sm:text-xs text-gray-500">
+            <p>&copy; {new Date().getFullYear()} Mohammad Fahad. All rights reserved.</p>
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-1.5 sm:mt-2">
+              <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
+              <span className="text-gray-600">&middot;</span>
+              <Link href="/disclaimer" className="hover:text-gray-300 transition-colors">Disclaimer</Link>
+            </div>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

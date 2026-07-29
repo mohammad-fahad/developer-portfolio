@@ -42,8 +42,8 @@ export default function ContactForm() {
 
   return (
     <div>
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">Contact with me</p>
-      <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
+      <p className="font-medium mb-5 text-violet-400 text-xl uppercase">Contact with me</p>
+      <div className="max-w-3xl text-white rounded-lg border border-gray-800 p-3 lg:p-5">
         <p className="text-sm text-[#d3d8e8]">
           If you have any questions or work inquiries, feel free to contact me.
         </p>
@@ -57,7 +57,7 @@ export default function ContactForm() {
               value={userInput.name}
               onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
               onBlur={checkRequired}
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2"
+              className="bg-[#0d1224] w-full border rounded-md border-gray-700/50 focus:border-violet-500/50 px-3 py-2"
               maxLength={100}
               required
             />
@@ -71,7 +71,7 @@ export default function ContactForm() {
               value={userInput.email}
               onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
               onBlur={() => setError({ ...error, email: !isValidEmail(userInput.email) })}
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2"
+              className="bg-[#0d1224] w-full border rounded-md border-gray-700/50 focus:border-violet-500/50 px-3 py-2"
               maxLength={100}
               required
             />
@@ -86,7 +86,7 @@ export default function ContactForm() {
               onChange={(e) => setUserInput({ ...userInput, message: e.target.value })}
               onBlur={checkRequired}
               rows={4}
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] px-3 py-2"
+              className="bg-[#0d1224] w-full border rounded-md border-gray-700/50 focus:border-violet-500/50 px-3 py-2"
               maxLength={500}
               required
             />
@@ -98,7 +98,7 @@ export default function ContactForm() {
             <button
               onClick={handleSendMail}
               disabled={isLoading}
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-white font-medium uppercase"
+              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-violet-600 to-violet-500 px-5 md:px-12 py-2.5 md:py-3 text-white font-medium uppercase hover:from-violet-500 hover:to-violet-400 transition-all duration-300"
             >
               {isLoading ? "Sending Message..." : <><span>Send Message</span><TbMailForward size={20} /></>}
             </button>
