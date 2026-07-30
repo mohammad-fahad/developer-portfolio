@@ -43,10 +43,10 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-gray-800/50 shadow-lg shadow-black/10"
-          : "bg-transparent"
+          ? "bg-[#0d1224]/80 backdrop-blur-2xl border-b border-gray-800/50 shadow-lg shadow-black/20"
+          : "bg-[#0d1224]/0 backdrop-blur-0"
       }`}
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
@@ -107,7 +107,7 @@ function Navbar() {
         aria-label="Mobile navigation"
         aria-hidden={!isOpen}
       >
-        <div className="px-4 sm:px-6 pb-4 pt-2 bg-[#0d1224]/95 backdrop-blur-xl border-t border-gray-800/50 space-y-0.5">
+        <div className="px-4 sm:px-6 pb-4 pt-2 bg-[#0d1224]/98 backdrop-blur-2xl border-t border-gray-800/50 space-y-0.5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
