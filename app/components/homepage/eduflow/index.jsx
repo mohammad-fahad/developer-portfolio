@@ -168,12 +168,12 @@ function EduFlowSection() {
 
             {/* CTA */}
             <Link
-              href="https://github.com/mohammad-fahad"
+              href="/work/eduflow"
               target="_blank"
               className="group flex items-center justify-between w-full p-3 sm:p-4 rounded-xl border border-violet-500/20 bg-violet-500/5 hover:bg-violet-500/10 transition-colors duration-300"
             >
               <div className="min-w-0 flex-1">
-                <p className="text-white font-medium text-xs sm:text-sm">View on GitHub</p>
+                <p className="text-white font-medium text-xs sm:text-sm">View the Case Study</p>
                 <p className="text-gray-400 text-[10px] sm:text-xs mt-0.5 truncate">Explore the architecture and code</p>
               </div>
               <FiExternalLink className="text-violet-400 flex-shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" size={16} />

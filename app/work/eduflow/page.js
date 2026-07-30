@@ -11,6 +11,7 @@ import {
   BsCashCoin,
   BsChatDots,
   BsPersonBadge,
+  BsFileWordFill,
 } from "react-icons/bs";
 import CaseStudySection from "@/app/components/case-study/section-wrapper";
 import SectionHeader from "@/app/components/case-study/section-header";
@@ -18,6 +19,16 @@ import ArchitectureDiagram from "@/app/components/case-study/architecture-diagra
 import TechStackGrid from "@/app/components/case-study/tech-stack-grid";
 import FeatureCard from "@/app/components/case-study/feature-card";
 import DecisionCard from "@/app/components/case-study/decision-card";
+import ChallengeCard from "@/app/components/case-study/challenge-card";
+import DevelopmentTimeline from "@/app/components/case-study/development-timeline";
+import ScreenshotGallery from "@/app/components/case-study/screenshot-gallery";
+import ownerDashboard from "@/public/image/eduflow/owner-dashboard.webp";
+import financeDashboard from "@/public/image/eduflow/finance.webp";
+import studentsDashboard from "@/public/image/eduflow/students.webp";
+import attendance from "@/public/image/eduflow/attendance.webp";
+import brnachAdmin from "@/public/image/eduflow/branch-admin.webp";
+import mobileDashboard from "@/public/image/eduflow/mobile-dashboard.webp";
+import { BiWorld } from "react-icons/bi";
 
 export const metadata = {
   title: "EduFlow — Multi-tenant Institution Operating System | Mohammad Fahad",
@@ -91,12 +102,12 @@ function EduFlowCaseStudy() {
 
             {/* CTA */}
             <Link
-              href="https://github.com/mohammad-fahad"
+              href="https://edu-flow-one-pearl.vercel.app/"
               target="_blank"
               className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300 shadow-lg shadow-violet-500/20"
             >
-              <FiGithub size={14} />
-              View on GitHub
+              <BiWorld size={14} />
+              View Website
               <FiArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -266,6 +277,42 @@ function EduFlowCaseStudy() {
         </div>
       </CaseStudySection>
 
+      {/* ============ TECHNICAL CHALLENGES ============ */}
+      <CaseStudySection id="challenges">
+        <SectionHeader
+          label="TECHNICAL CHALLENGES"
+          title="Engineering problems solved during development"
+          description="Each challenge required careful architectural thinking and deliberate trade-offs."
+        />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <ChallengeCard
+            title="Multi-Tenant Data Isolation"
+            challenge="Multiple institutions use one SaaS platform while keeping data securely separated. A data leak between tenants would be catastrophic."
+            approach="Designed institution ownership boundaries with tenant-aware database queries, Row-Level Security policies, and middleware-level tenant context injection."
+            impact="Created a scalable foundation for supporting multiple organizations from a single codebase with zero data leakage risk."
+          />
+          <ChallengeCard
+            title="Flexible RBAC System"
+            challenge="Different institution roles require completely different workflows and data access. Hardcoded dashboards would not scale across diverse institution types."
+            approach="Built a permission-driven access control system with 8 hierarchical roles, each with granular permissions configurable per institution."
+            impact="Allowed future role expansion without code changes. Each user sees exactly the interface and data their role permits."
+          />
+          <ChallengeCard
+            title="Production Reliability"
+            challenge="Moving from prototype quality to production readiness required systematic engineering discipline across testing, security, and deployment."
+            approach="Added comprehensive validation at every layer, unit and integration tests, CI/CD automation, error monitoring, and security hardening."
+            impact="Improved maintainability and deployment confidence. Changes can be shipped rapidly with automated quality gates."
+          />
+          <ChallengeCard
+            title="Complex Business Workflows"
+            challenge="Education platforms combine academic, financial, and communication systems that must work together seamlessly while remaining maintainable."
+            approach="Separated business domains into modular systems with clear boundaries, shared through a common data layer and event-driven communication."
+            impact="Made future feature expansion easier. New modules can be added without disrupting existing workflows."
+          />
+        </div>
+      </CaseStudySection>
+
       {/* ============ FEATURE SHOWCASE ============ */}
       <CaseStudySection id="features">
         <SectionHeader
@@ -322,6 +369,16 @@ function EduFlowCaseStudy() {
         </div>
       </CaseStudySection>
 
+      {/* ============ DEVELOPMENT JOURNEY ============ */}
+      <CaseStudySection id="journey">
+        <SectionHeader
+          label="DEVELOPMENT JOURNEY"
+          title="Evolution of the platform"
+          description="EduFlow progressed through distinct phases, each building on the previous to create a production-grade system."
+        />
+        <DevelopmentTimeline />
+      </CaseStudySection>
+
       {/* ============ TECHNOLOGY STACK ============ */}
       <CaseStudySection id="tech-stack">
         <SectionHeader
@@ -332,30 +389,14 @@ function EduFlowCaseStudy() {
         <TechStackGrid />
       </CaseStudySection>
 
-      {/* ============ SCREENSHOT PLACEHOLDER ============ */}
+      {/* ============ SCREENSHOTS ============ */}
       <CaseStudySection id="screenshots">
         <SectionHeader
           label="SCREENSHOTS"
           title="Visual walkthrough"
           description="Screenshots will be added as the platform matures. This section is prepared for future visual documentation."
         />
-
-        <div className="rounded-xl border border-dashed border-gray-700 bg-[#0d1224]/40 p-8 sm:p-12 lg:p-16 text-center">
-          <div className="max-w-md mx-auto">
-            <div className="w-12 h-12 mx-auto mb-4 rounded-lg border border-gray-700 bg-gray-800/40 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-gray-500">
-                <rect x="2" y="3" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="7.5" cy="8.5" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M2 13l4-3 3 2 3-4 6 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <h3 className="text-white font-semibold text-sm sm:text-base mb-2">Screenshots coming soon</h3>
-            <p className="text-gray-500 text-xs sm:text-sm">
-              Visual documentation of the platform will be added as the product evolves.
-              The repository is currently in active development.
-            </p>
-          </div>
-        </div>
+        <ScreenshotGallery screenshots={[{ id: 1, image: ownerDashboard }, { id: 2, image: financeDashboard }, { id: 3, image: studentsDashboard }, { id: 4, image: attendance }, { id: 5, image: brnachAdmin }, { id: 6, image: mobileDashboard }]} />
       </CaseStudySection>
 
       {/* ============ BACK TO HOME ============ */}

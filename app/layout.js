@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
     "@type": "Person",
     name: "Mohammad Fahad",
     url: "https://mohammadfahad.com",
-    image: "/mohammad-fahd.jpg",
+    image: "/about-me.png",
     jobTitle: "Product-Focused Full Stack Engineer",
     description:
       "Product-focused full stack engineer building scalable SaaS applications. Creator of EduFlow, a multi-tenant Institution Operating System.",
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <head suppressHydrationWarning>
         {/* Google Tag Manager - Head */}
         {gtmId && (
           <script

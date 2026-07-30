@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Mohammad Fahad",
-  profile: "/mohammad-fahd.jpg",
+  profile: "/AboutMe.jpg",
   designation: "Product-focused Full Stack Engineer building scalable SaaS applications",
   subheading: `I design, architect, and ship production-grade SaaS platforms.
 From multi-tenant systems to role-based access control — I build software that scales.
