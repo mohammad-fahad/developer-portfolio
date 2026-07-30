@@ -1,18 +1,14 @@
 // @flow strict
 
 import Link from "next/link";
-import { FiArrowUpRight, FiGithub, FiLock, FiCalendar, FiUser, FiCpu } from "react-icons/fi";
+import { FiArrowUpRight, FiLock, FiCalendar, FiUser, FiCpu } from "react-icons/fi";
 import {
-  BsShieldCheck,
-  BsLayers,
-  BsPeople,
-  BsGear,
   BsBook,
   BsCashCoin,
   BsChatDots,
   BsPersonBadge,
-  BsFileWordFill,
 } from "react-icons/bs";
+import { BiWorld } from "react-icons/bi";
 import CaseStudySection from "@/app/components/case-study/section-wrapper";
 import SectionHeader from "@/app/components/case-study/section-header";
 import ArchitectureDiagram from "@/app/components/case-study/architecture-diagram";
@@ -22,13 +18,6 @@ import DecisionCard from "@/app/components/case-study/decision-card";
 import ChallengeCard from "@/app/components/case-study/challenge-card";
 import DevelopmentTimeline from "@/app/components/case-study/development-timeline";
 import ScreenshotGallery from "@/app/components/case-study/screenshot-gallery";
-import ownerDashboard from "@/public/image/eduflow/owner-dashboard.webp";
-import financeDashboard from "@/public/image/eduflow/finance.webp";
-import studentsDashboard from "@/public/image/eduflow/students.webp";
-import attendance from "@/public/image/eduflow/attendance.webp";
-import brnachAdmin from "@/public/image/eduflow/branch-admin.webp";
-import mobileDashboard from "@/public/image/eduflow/mobile-dashboard.webp";
-import { BiWorld } from "react-icons/bi";
 
 export const metadata = {
   title: "EduFlow — Multi-tenant Institution Operating System | Mohammad Fahad",
@@ -50,6 +39,19 @@ export const metadata = {
   },
 };
 
+function SectionDivider() {
+  return (
+    <div className="relative my-16 lg:my-28">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-px h-16 bg-gradient-to-b from-transparent via-violet-500/20 to-transparent" />
+      </div>
+      <div className="relative flex justify-center">
+        <div className="w-2 h-2 rounded-full bg-violet-500/30 ring-4 ring-[#0a0f1e]" />
+      </div>
+    </div>
+  );
+}
+
 function EduFlowCaseStudy() {
   return (
     <div className="py-8 sm:py-12 lg:py-16">
@@ -63,11 +65,13 @@ function EduFlowCaseStudy() {
                 <span className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-violet-400" />
                 CASE STUDY &bull; SAAS &bull; FULL-STACK
               </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3">
-                EduFlow
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3">
+                <span className="bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
+                  EduFlow
+                </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-4 sm:mb-6">
-                Multi-tenant Institution Operating System SaaS
+                Multi-tenant Institution Operating System
               </p>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl">
                 A full-stack SaaS platform designed to help schools, madrasas, and educational
@@ -190,6 +194,8 @@ function EduFlowCaseStudy() {
         </div>
       </CaseStudySection>
 
+      <SectionDivider />
+
       {/* ============ ARCHITECTURE ============ */}
       <CaseStudySection id="architecture">
         <SectionHeader
@@ -228,6 +234,8 @@ function EduFlowCaseStudy() {
           </div>
         </div>
       </CaseStudySection>
+
+      <SectionDivider />
 
       {/* ============ ENGINEERING DECISIONS ============ */}
       <CaseStudySection id="engineering">
@@ -313,6 +321,8 @@ function EduFlowCaseStudy() {
         </div>
       </CaseStudySection>
 
+      <SectionDivider />
+
       {/* ============ FEATURE SHOWCASE ============ */}
       <CaseStudySection id="features">
         <SectionHeader
@@ -369,6 +379,8 @@ function EduFlowCaseStudy() {
         </div>
       </CaseStudySection>
 
+      <SectionDivider />
+
       {/* ============ DEVELOPMENT JOURNEY ============ */}
       <CaseStudySection id="journey">
         <SectionHeader
@@ -378,6 +390,8 @@ function EduFlowCaseStudy() {
         />
         <DevelopmentTimeline />
       </CaseStudySection>
+
+      <SectionDivider />
 
       {/* ============ TECHNOLOGY STACK ============ */}
       <CaseStudySection id="tech-stack">
@@ -389,14 +403,75 @@ function EduFlowCaseStudy() {
         <TechStackGrid />
       </CaseStudySection>
 
+      <SectionDivider />
+
       {/* ============ SCREENSHOTS ============ */}
       <CaseStudySection id="screenshots">
         <SectionHeader
           label="SCREENSHOTS"
-          title="Visual walkthrough"
-          description="Screenshots will be added as the platform matures. This section is prepared for future visual documentation."
+          title="Platform walkthrough"
+          description="Production screenshots showing the core workflows and interfaces across the EduFlow platform."
         />
-        <ScreenshotGallery screenshots={[{ id: 1, image: ownerDashboard }, { id: 2, image: financeDashboard }, { id: 3, image: studentsDashboard }, { id: 4, image: attendance }, { id: 5, image: brnachAdmin }, { id: 6, image: mobileDashboard }]} />
+        <ScreenshotGallery
+          screenshots={[
+            {
+              id: 1,
+              image: "/images/work/eduflow/screenshots/owner-dashboard.webp",
+              title: "Owner Dashboard",
+              description:
+                "Centralized SaaS command center for institution owners with operational, financial, and user insights.",
+              category: "Dashboard",
+            },
+            {
+              id: 2,
+              image: "/images/work/eduflow/screenshots/attendance.webp",
+              title: "Attendance Module",
+              description:
+                "Teacher-first attendance workflow with real-time tracking, class-wise views, and automated analytics.",
+              category: "Academics",
+            },
+            {
+              id: 3,
+              image: "/images/work/eduflow/screenshots/students.webp",
+              title: "Student Management",
+              description:
+                "Complete student lifecycle management including enrollment, records, academic tracking, and parent communication.",
+              category: "Academics",
+            },
+            {
+              id: 4,
+              image: "/images/work/eduflow/screenshots/finance.webp",
+              title: "Financial Operations",
+              description:
+                "Complete fee collection, payment verification, transaction history, and financial reporting system.",
+              category: "Finance",
+            },
+            {
+              id: 5,
+              image: "/images/work/eduflow/screenshots/analytics.webp",
+              title: "Analytics & Reports",
+              description:
+                "Data-driven institutional insights with visual dashboards, attendance trends, and financial summaries.",
+              category: "Analytics",
+            },
+            {
+              id: 6,
+              image: "/images/work/eduflow/screenshots/mobile-dashboard.webp",
+              title: "Mobile Dashboard",
+              description:
+                "Responsive mobile interface providing on-the-go access to key metrics and workflows.",
+              category: "Mobile",
+            },
+            {
+              id: 7,
+              image: "/images/work/eduflow/screenshots/landing.webp",
+              title: "SaaS Landing Page",
+              description:
+                "Modern, conversion-optimized landing page showcasing the platform value proposition.",
+              category: "Marketing",
+            },
+          ]}
+        />
       </CaseStudySection>
 
       {/* ============ BACK TO HOME ============ */}

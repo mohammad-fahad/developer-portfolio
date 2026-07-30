@@ -27,25 +27,27 @@ function ScreenshotGallery({ screenshots = [] }) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
       {screenshots.map((screenshot, index) => (
         <figure
           key={index}
-          className="group rounded-xl border border-gray-800 bg-[#0d1224]/60 overflow-hidden"
+          className="group rounded-xl border border-gray-800 bg-[#0d1224]/60 overflow-hidden transition-all duration-300 hover:border-violet-500/30 hover:shadow-lg hover:shadow-violet-500/5"
         >
-          <div className="relative aspect-video w-full overflow-hidden">
+          <div className="relative aspect-video w-full overflow-hidden bg-[#0a0f1e]">
             <Image
               src={screenshot.image}
               alt={screenshot.alt || screenshot.title || `EduFlow screenshot ${index + 1}`}
               fill
+              priority={index === 0}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              className="object-cover transition-all duration-500 group-hover:scale-[1.03] group-hover:brightness-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1224]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
           {(screenshot.title || screenshot.description) && (
-            <figcaption className="p-4 sm:p-5 border-t border-gray-800">
+            <figcaption className="p-4 sm:p-5 border-t border-gray-800/80">
               {screenshot.title && (
-                <h3 className="text-white text-sm sm:text-base font-semibold mb-1">
+                <h3 className="text-white text-sm sm:text-base font-semibold mb-1.5">
                   {screenshot.title}
                 </h3>
               )}
