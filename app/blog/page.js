@@ -4,10 +4,13 @@ import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+  const devUsername = personalData.devUsername || "mohammad-fahad";
+  const res = await fetch(`https://dev.to/api/articles?username=${devUsername}`, {
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    return [];
   }
 
   const data = await res.json();
@@ -15,7 +18,7 @@ async function getBlogs() {
 };
 
 async function page() {
-  const blogs = await getBlogs();
+  const blogs = await getBlogs().catch(() => []);
 
   return (
     <div className="py-8">

@@ -2,7 +2,8 @@
 
 import { experiences } from "@/utils/data/experience";
 import { BsPersonWorkspace } from "react-icons/bs";
-import { FiCalendar } from "react-icons/fi";
+import { FiCalendar, FiArrowUpRight } from "react-icons/fi";
+import Link from "next/link";
 
 function Experience() {
   return (
@@ -22,15 +23,22 @@ function Experience() {
         <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
           Professional experience
         </h2>
+        <p className="text-gray-400 mt-2 sm:mt-3 max-w-2xl text-sm sm:text-base">
+          Click on any role to see the full story — responsibilities, projects, technical decisions, and lessons learned.
+        </p>
       </div>
 
       <div className="relative">
-        {/* Timeline line - hidden on very small screens */}
+        {/* Timeline line */}
         <div className="absolute left-[19px] top-2 bottom-2 w-[2px] bg-gray-800 hidden sm:block" />
 
         <div className="space-y-4 sm:space-y-6">
           {experiences.map((exp) => (
-            <div key={exp.id} className="relative flex items-start gap-4 sm:gap-8 group">
+            <Link
+              key={exp.id}
+              href={`/experience/${exp.slug}`}
+              className="relative flex items-start gap-4 sm:gap-8 group cursor-pointer"
+            >
               {/* Timeline dot */}
               <div className="relative z-10 flex-shrink-0 mt-0.5 sm:mt-1">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1a1443] border-2 border-violet-500/30 flex items-center justify-center group-hover:border-violet-400 transition-colors duration-300">
@@ -39,21 +47,27 @@ function Experience() {
               </div>
 
               {/* Content card */}
-              <div className="flex-1 min-w-0 p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300">
+              <div className="flex-1 min-w-0 p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/30 hover:bg-[#0d1224]/80 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 mb-1 sm:mb-2">
-                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white group-hover:text-violet-300 transition-colors duration-300">
                     {exp.title}
                   </h3>
                   <span className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-gray-400 flex-shrink-0">
                     <FiCalendar size={10} />
-                    {exp.duration}
+                    {exp.durationShort}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-400">
-                  {exp.company}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs sm:text-sm text-gray-400">
+                    {exp.company} — {exp.location}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0 ml-2">
+                    View details
+                    <FiArrowUpRight size={10} />
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

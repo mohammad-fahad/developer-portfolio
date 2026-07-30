@@ -15,5 +15,6 @@ Currently building EduFlow, a multi-tenant Institution Operating System.`,
   stackOverflow: "https://stackoverflow.com/users/13954171/mohammad-fahad",
   twitter: "https://x.com/Mohamma52324377",
   facebook: "https://www.facebook.com/mohammad.fahad.f",
+  devUsername: "mohammad-fahad",
   resume: "https://drive.google.com/file/d/1duEdfhbiR5kRuJ-AR7hpqkEG83I2XkU_/view?usp=sharing",
 };

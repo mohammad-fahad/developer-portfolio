@@ -45,7 +45,7 @@ function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0d1224]/80 backdrop-blur-xl border-b border-gray-800/50"
+          ? "bg-[#0a0f1e]/95 backdrop-blur-xl border-b border-gray-800/50 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >

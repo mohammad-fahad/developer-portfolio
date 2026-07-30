@@ -1,6 +1,7 @@
 'use client';
 import { projectsData } from '@/utils/data/projects-data';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiExternalLink, FiArrowUpRight } from 'react-icons/fi';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const Projects = () => {
@@ -31,9 +32,10 @@ const Projects = () => {
 
       <div className="space-y-4 sm:space-y-5">
         {displayedProjects.map((project, index) => (
-          <div
+          <Link
             key={project.id}
-            className="group rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden"
+            href={`/work/${project.slug}`}
+            className="group block rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/30 hover:bg-[#0d1224]/80 transition-all duration-300 overflow-hidden cursor-pointer"
           >
             <div className="p-4 sm:p-5 lg:p-6">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-3">
@@ -49,28 +51,21 @@ const Projects = () => {
                   </h3>
                 </div>
 
-                {/* Links */}
                 <div className="flex items-center gap-2 flex-shrink-0">
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    View case study
+                    <FiArrowUpRight size={10} />
+                  </span>
                   {project.demo && (
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
                     >
                       Live Demo
                       <FiExternalLink size={10} />
-                    </a>
-                  )}
-                  {project.code && (
-                    <a
-                      href={project.code}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-lg border border-gray-700/50 hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
-                    >
-                      <FiGithub size={10} />
-                      Code
                     </a>
                   )}
                 </div>
@@ -80,7 +75,6 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Engineering highlights */}
               {project.highlights && project.highlights.length > 0 && (
                 <div className="mb-3 sm:mb-4 space-y-1 sm:space-y-1.5">
                   {project.highlights.map((h, i) => (
@@ -92,7 +86,6 @@ const Projects = () => {
                 </div>
               )}
 
-              {/* Tech stack */}
               <div className="flex flex-wrap gap-1 sm:gap-1.5">
                 {project.tools.map((tool) => (
                   <span
@@ -104,7 +97,7 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
