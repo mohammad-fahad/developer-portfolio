@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
 import ScrollToTop from "./components/helper/scroll-to-top";
 import Navbar from "./components/navbar";
+import ThemeProvider from "./components/theme-provider";
 import "./css/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -106,7 +107,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head suppressHydrationWarning>
-        {/* Google Tag Manager - Head */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (theme === 'dark' || (!theme && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
         {gtmId && (
           <script
             dangerouslySetInnerHTML={{
@@ -120,7 +137,6 @@ export default function RootLayout({ children }) {
             }}
           />
         )}
-        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -129,7 +145,6 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={inter.className}>
-        {/* Google Tag Manager (noscript) */}
         {gtmId && (
           <noscript
             dangerouslySetInnerHTML={{
@@ -137,6 +152,7 @@ export default function RootLayout({ children }) {
             }}
           />
         )}
+        <ThemeProvider>
           <ToastContainer />
           <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
             <Navbar />
@@ -144,6 +160,7 @@ export default function RootLayout({ children }) {
             <ScrollToTop />
           </main>
           <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

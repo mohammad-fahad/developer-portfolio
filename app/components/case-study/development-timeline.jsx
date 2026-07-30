@@ -1,101 +1,55 @@
-// @flow strict
-
-const timelinePhases = [
+const phases = [
   {
-    phase: "Architecture Foundation",
-    description: "Project setup, database schema design, multi-tenant data model, and core infrastructure.",
+    phase: "Phase 1",
+    title: "Foundation & Architecture",
+    description: "Set up the project structure, database schema, authentication system, and multi-tenant architecture. Established the core API patterns and data models.",
+    details: ["Project scaffolding & monorepo structure", "Database schema design with Prisma", "Authentication with Supabase", "Multi-tenant context middleware"],
   },
   {
-    phase: "Authentication & Role System",
-    description: "User authentication, session management, role hierarchy, and permission engine.",
+    phase: "Phase 2",
+    title: "Core Academic Workflows",
+    description: "Built the primary academic management features including student enrollment, attendance tracking, and teacher assignment workflows.",
+    details: ["Student enrollment & records management", "Attendance tracking system", "Class & section management", "Teacher assignment & scheduling"],
   },
   {
-    phase: "Multi-Tenant Platform",
-    description: "Tenant isolation, institution onboarding, organization management, and configuration system.",
+    phase: "Phase 3",
+    title: "Financial Operations",
+    description: "Implemented comprehensive financial modules including fee structures, payment collection, transaction history, and financial reporting.",
+    details: ["Fee structure & configuration", "Payment collection & verification", "Transaction history & audit logs", "Financial reporting & analytics"],
   },
   {
-    phase: "Academic Workflows",
-    description: "Student management, teacher workflows, attendance tracking, class and section organization.",
-  },
-  {
-    phase: "Finance System",
-    description: "Fee structures, payment processing, transaction records, financial reporting.",
-  },
-  {
-    phase: "Security Hardening",
-    description: "Row-level security, input validation, rate limiting, audit logging, vulnerability scanning.",
-  },
-  {
-    phase: "Production Readiness",
-    description: "Testing strategy, CI/CD pipeline, error monitoring, performance optimization, documentation.",
+    phase: "Phase 4",
+    title: "Production Hardening",
+    description: "Focused on security hardening, comprehensive testing, performance optimization, and CI/CD pipeline setup for production readiness.",
+    details: ["Security hardening & penetration testing", "Unit, integration & E2E tests", "Performance optimization & Lighthouse", "CI/CD pipeline & Docker setup"],
   },
 ];
 
 function DevelopmentTimeline() {
   return (
-    <div className="rounded-xl border border-gray-800 bg-[#0d1224]/80 p-4 sm:p-6 lg:p-8">
-      {/* Desktop: horizontal timeline */}
-      <div className="hidden sm:block">
-        <div className="relative">
-          {/* Connecting line */}
-          <div className="absolute top-4 left-0 right-0 h-px bg-gray-800" />
-
-          <ol className="relative flex justify-between">
-            {timelinePhases.map((item, i) => (
-              <li key={item.phase} className="flex flex-col items-center text-center flex-1 min-w-0">
-                {/* Dot */}
-                <div className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full border border-gray-700 bg-[#0d1224] mb-3">
-                  <span className="w-2 h-2 rounded-full bg-violet-400" />
-                </div>
-
-                {/* Phase number */}
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1">
-                  Phase {i + 1}
-                </span>
-
-                {/* Phase name */}
-                <h4 className="text-white text-xs font-semibold leading-tight mb-1 px-1">
-                  {item.phase}
-                </h4>
-
-                {/* Description */}
-                <p className="text-gray-500 text-[10px] leading-relaxed px-1 max-w-[140px]">
-                  {item.description}
-                </p>
-              </li>
+    <div className="space-y-6 sm:space-y-8">
+      {phases.map((phase, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/80 p-4 sm:p-5 lg:p-6"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full border border-violet-500/20">
+              {phase.phase}
+            </span>
+          </div>
+          <h3 className="text-[var(--text-primary)] font-semibold text-sm sm:text-base mb-2">{phase.title}</h3>
+          <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{phase.description}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+            {phase.details.map((detail, j) => (
+              <div key={j} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-secondary)]">
+                <span className="w-1 h-1 rounded-full bg-violet-400 mt-1.5 flex-shrink-0" />
+                <span>{detail}</span>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
-      </div>
-
-      {/* Mobile: vertical timeline */}
-      <div className="sm:hidden">
-        <ol className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-3.5 top-0 bottom-0 w-px bg-gray-800" />
-
-          {timelinePhases.map((item, i) => (
-            <li key={item.phase} className="relative flex items-start gap-4 pb-6 last:pb-0">
-              {/* Dot */}
-              <div className="relative z-10 flex items-center justify-center w-7 h-7 rounded-full border border-gray-700 bg-[#0d1224] flex-shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-              </div>
-
-              <div className="min-w-0 pt-0.5">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 block mb-0.5">
-                  Phase {i + 1}
-                </span>
-                <h4 className="text-white text-sm font-semibold mb-1">
-                  {item.phase}
-                </h4>
-                <p className="text-gray-500 text-xs leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
+      ))}
     </div>
   );
 }

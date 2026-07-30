@@ -32,19 +32,18 @@ const capabilityCategories = [
 function Skills() {
   return (
     <div id="skills" className="relative z-50 my-16 lg:my-28">
-      {/* Section header */}
       <div className="flex items-center justify-start relative mb-8 sm:mb-12">
-        <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
+        <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           EXPERTISE
         </span>
-        <span className="w-full h-[2px] bg-[#1a1443]"></span>
+        <span className="w-full h-[2px] bg-[var(--section-header-bg)]"></span>
       </div>
 
       <div className="mb-6 sm:mb-10">
-        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2 sm:mb-3">
+        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2 sm:mb-3">
           Technical capabilities
         </p>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
           What I build with
         </h2>
       </div>
@@ -53,24 +52,24 @@ function Skills() {
         {capabilityCategories.map((category, i) => (
           <div
             key={i}
-            className="p-4 sm:p-5 lg:p-6 rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300 group"
+            className="p-4 sm:p-5 lg:p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 group"
           >
             <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
               <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-colors duration-300 flex-shrink-0">
                 {category.icon}
               </div>
-              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white">
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[var(--text-primary)]">
                 {category.title}
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--text-muted)] mb-3 sm:mb-4 leading-relaxed">
               {category.description}
             </p>
             <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {category.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-gray-300 bg-gray-800/60 rounded-md border border-gray-700/50"
+                  className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] rounded-md border border-[var(--border-light)]"
                 >
                   {skill}
                 </span>

@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -19,8 +18,7 @@ const SingleProject = ({ project }) => {
   };
 
   return (
-    <div className="flex flex-col h-full rounded-lg overflow-hidden bg-[#1a1443] text-white">
-      {/* Carousel */}
+    <div className="flex flex-col h-full rounded-lg overflow-hidden bg-[var(--bg-secondary)] text-[var(--text-primary)]">
       <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96 flex-shrink-0">
         <Image
           src={project.images[currentIndex]}
@@ -31,8 +29,6 @@ const SingleProject = ({ project }) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
-
-        {/* Prev Button */}
         <button
           onClick={prevSlide}
           className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full p-2 hover:bg-black/70"
@@ -40,7 +36,6 @@ const SingleProject = ({ project }) => {
           ◀
         </button>
 
-        {/* Next Button */}
         <button
           onClick={nextSlide}
           className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full p-2 hover:bg-black/70"
@@ -48,7 +43,6 @@ const SingleProject = ({ project }) => {
           ▶
         </button>
 
-        {/* Dots */}
         <div className="absolute bottom-3 w-full flex justify-center gap-2">
           {project.images.map((_, idx) => (
             <div
@@ -60,13 +54,11 @@ const SingleProject = ({ project }) => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-grow p-4">
         <h3 className="text-xl font-semibold  mt-5">Name: {project.name}</h3>
         <strong className="text-l font-semibold mb-2">Role: {project.role}</strong>
-        <p className="flex-grow text-sm text-gray-300">Details: {project.description}</p>
+        <p className="flex-grow text-sm text-[var(--text-secondary)]">Details: {project.description}</p>
 
-        {/* Skills (already styled carousel) */}
         <div className="flex flex-wrap gap-2 mt-4">
           {project.tools.map((skill, idx) => (
             <span
@@ -78,13 +70,12 @@ const SingleProject = ({ project }) => {
           ))}
         </div>
 
-        {/* Links */}
         <div className="mt-4 flex gap-3">
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
-              className="px-4 py-2 rounded bg-violet-600 hover:bg-violet-700 text-sm"
+              className="px-4 py-2 rounded bg-violet-600 hover:bg-violet-700 text-sm text-white"
             >
               Live Demo
             </a>
@@ -93,7 +84,7 @@ const SingleProject = ({ project }) => {
             <a
               href={project.github}
               target="_blank"
-              className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-800 text-sm"
+              className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-800 text-sm text-white"
             >
               GitHub
             </a>
@@ -105,4 +96,3 @@ const SingleProject = ({ project }) => {
 };
 
 export default SingleProject;
-

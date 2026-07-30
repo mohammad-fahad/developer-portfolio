@@ -46,7 +46,7 @@ function SectionDivider() {
         <div className="w-px h-16 bg-gradient-to-b from-transparent via-violet-500/20 to-transparent" />
       </div>
       <div className="relative flex justify-center">
-        <div className="w-2 h-2 rounded-full bg-violet-500/30 ring-4 ring-[#0a0f1e]" />
+        <div className="w-2 h-2 rounded-full bg-violet-500/30 ring-4 ring-[var(--bg-darker)]" />
       </div>
     </div>
   );
@@ -66,14 +66,14 @@ function EduFlowCaseStudy() {
                 CASE STUDY &bull; SAAS &bull; FULL-STACK
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3">
-                <span className="bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[var(--text-primary)] via-violet-200 to-violet-400 bg-clip-text text-transparent">
                   EduFlow
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg lg:text-xl text-[var(--text-muted)] mb-4 sm:mb-6">
                 Multi-tenant Institution Operating System
               </p>
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+              <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed max-w-2xl">
                 A full-stack SaaS platform designed to help schools, madrasas, and educational
                 institutions manage operations through role-based workflows, automation, and
                 centralized data. Built from the ground up with production engineering practices.
@@ -82,25 +82,25 @@ function EduFlowCaseStudy() {
 
             {/* Meta info */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <div className="p-3 sm:p-4 rounded-lg border border-gray-800 bg-[#0d1224]/60">
+              <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiUser className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5">Role</p>
-                <p className="text-white text-xs sm:text-sm font-medium">Solo Full-Stack Engineer</p>
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Role</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">Solo Full-Stack Engineer</p>
               </div>
-              <div className="p-3 sm:p-4 rounded-lg border border-gray-800 bg-[#0d1224]/60">
+              <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiCalendar className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5">Timeline</p>
-                <p className="text-white text-xs sm:text-sm font-medium">In Development</p>
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Timeline</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">In Development</p>
               </div>
-              <div className="p-3 sm:p-4 rounded-lg border border-gray-800 bg-[#0d1224]/60">
+              <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiCpu className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5">Stack</p>
-                <p className="text-white text-xs sm:text-sm font-medium">Next.js + Prisma + PostgreSQL</p>
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Stack</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">Next.js + Prisma + PostgreSQL</p>
               </div>
-              <div className="p-3 sm:p-4 rounded-lg border border-gray-800 bg-[#0d1224]/60">
+              <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiLock className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5">Repository</p>
-                <p className="text-white text-xs sm:text-sm font-medium">Private</p>
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Repository</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">Private</p>
               </div>
             </div>
 
@@ -118,8 +118,8 @@ function EduFlowCaseStudy() {
 
           {/* Sidebar summary */}
           <div className="lg:col-span-2">
-            <div className="p-4 sm:p-5 lg:p-6 rounded-xl border border-gray-800 bg-[#0d1224]/80 lg:sticky lg:top-24">
-              <h3 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4">At a Glance</h3>
+            <div className="p-4 sm:p-5 lg:p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/80 lg:sticky lg:top-24">
+              <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-3 sm:mb-4">At a Glance</h3>
               <ul className="space-y-2.5 sm:space-y-3">
                 {[
                   "Multi-tenant architecture with institution-level data isolation",
@@ -128,7 +128,7 @@ function EduFlowCaseStudy() {
                   "Production-grade security, testing, and CI/CD pipeline",
                   "Built with Next.js App Router, TypeScript, Prisma, PostgreSQL",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
+                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-secondary)]">
                     <span className="w-1 h-1 rounded-full bg-violet-400 mt-1.5 sm:mt-2 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -149,9 +149,9 @@ function EduFlowCaseStudy() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Problem */}
-          <div className="rounded-xl border border-gray-800 bg-[#0d1224]/60 p-4 sm:p-5 lg:p-6">
+          <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5 lg:p-6">
             <h3 className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-red-400 mb-3 sm:mb-4">The Problem</h3>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
               Educational institutions often rely on disconnected tools for:
             </p>
             <ul className="space-y-2 sm:space-y-2.5">
@@ -162,7 +162,7 @@ function EduFlowCaseStudy() {
                 "Communication — fragmented across WhatsApp, email, and notice boards",
                 "Staff workflows — no centralized system for teachers and administrators",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-400">
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-muted)]">
                   <span className="w-1 h-1 rounded-full bg-red-400/60 mt-1.5 sm:mt-2 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
@@ -171,9 +171,9 @@ function EduFlowCaseStudy() {
           </div>
 
           {/* Solution */}
-          <div className="rounded-xl border border-gray-800 bg-[#0d1224]/60 p-4 sm:p-5 lg:p-6">
+          <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5 lg:p-6">
             <h3 className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 sm:mb-4">The Solution</h3>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
               A unified SaaS operating system that brings everything together:
             </p>
             <ul className="space-y-2 sm:space-y-2.5">
@@ -184,7 +184,7 @@ function EduFlowCaseStudy() {
                 "Automated workflows reducing manual administrative work",
                 "Scalable architecture serving multiple institutions from one codebase",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-400">
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-muted)]">
                   <span className="w-1 h-1 rounded-full bg-emerald-400/60 mt-1.5 sm:mt-2 flex-shrink-0" />
                   <span>{item}</span>
                 </li>
@@ -209,24 +209,24 @@ function EduFlowCaseStudy() {
             <ArchitectureDiagram />
           </div>
           <div className="lg:col-span-2 space-y-3 sm:space-y-4">
-            <div className="rounded-xl border border-gray-800 bg-[#0d1224]/60 p-4 sm:p-5">
-              <h3 className="text-white font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Multi-tenancy</h3>
-              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5">
+              <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Multi-tenancy</h3>
+              <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
                 Each institution operates in an isolated tenant context. Data is scoped by
                 institution ID at the database level, with Row-Level Security policies ensuring
                 tenants can never access data from other institutions.
               </p>
             </div>
-            <div className="rounded-xl border border-gray-800 bg-[#0d1224]/60 p-4 sm:p-5">
-              <h3 className="text-white font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Institution Isolation</h3>
-              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5">
+              <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Institution Isolation</h3>
+              <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
                 Shared infrastructure with isolated data per institution. Each tenant has their
                 own configuration, user base, academic structure, and financial records.
               </p>
             </div>
-            <div className="rounded-xl border border-gray-800 bg-[#0d1224]/60 p-4 sm:p-5">
-              <h3 className="text-white font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Role Hierarchy</h3>
-              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5">
+              <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Role Hierarchy</h3>
+              <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
                 Permission-driven access control with 8 hierarchical roles. Each role has
                 granular permissions that can be customized per institution.
               </p>
@@ -475,10 +475,10 @@ function EduFlowCaseStudy() {
       </CaseStudySection>
 
       {/* ============ BACK TO HOME ============ */}
-      <div className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-gray-800">
+      <div className="mt-12 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 border-t border-[var(--border-color)]">
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-violet-300 transition-colors duration-300"
+          className="group inline-flex items-center gap-2 text-xs sm:text-sm text-[var(--text-muted)] hover:text-violet-300 transition-colors duration-300"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="group-hover:-translate-x-0.5 transition-transform">
             <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

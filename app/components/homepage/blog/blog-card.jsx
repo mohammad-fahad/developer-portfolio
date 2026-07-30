@@ -6,7 +6,7 @@ import { BsHeartFill } from 'react-icons/bs';
 
 function BlogCard({ blog }) {
   return (
-    <div className="group rounded-xl border border-gray-800 bg-[#0d1224]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden">
+    <div className="group rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden">
       <div className="h-40 sm:h-44 lg:h-48 overflow-hidden">
         {blog?.thumbnail && (
           <Image
@@ -20,7 +20,7 @@ function BlogCard({ blog }) {
         )}
       </div>
       <div className="p-3 sm:p-4 lg:p-5">
-        <div className="flex items-center justify-between text-[10px] sm:text-xs text-gray-400 mb-1.5 sm:mb-2">
+        <div className="flex items-center justify-between text-[10px] sm:text-xs text-[var(--text-muted)] mb-1.5 sm:mb-2">
           <span>{timeConverter(blog.date)}</span>
           {blog.public_reactions_count > 0 && (
             <span className="flex items-center gap-1">
@@ -30,11 +30,11 @@ function BlogCard({ blog }) {
           )}
         </div>
         <Link target="_blank" href={blog.link}>
-          <h3 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2 line-clamp-2 group-hover:text-violet-300 transition-colors duration-300">
+          <h3 className="text-sm sm:text-base font-semibold text-[var(--text-primary)] mb-1.5 sm:mb-2 line-clamp-2 group-hover:text-violet-300 transition-colors duration-300">
             {blog.title}
           </h3>
         </Link>
-        <p className="text-[11px] sm:text-xs text-gray-400 line-clamp-2 mb-2 sm:mb-3 leading-relaxed">
+        <p className="text-[11px] sm:text-xs text-[var(--text-muted)] line-clamp-2 mb-2 sm:mb-3 leading-relaxed">
           {blog.description}
         </p>
         <Link target="_blank" href={blog.link}>
