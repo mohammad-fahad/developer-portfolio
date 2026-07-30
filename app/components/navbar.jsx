@@ -1,45 +1,134 @@
-// @flow strict
-import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
+"use client";
 
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { FiMenu, FiX, FiDownload } from "react-icons/fi";
+import { personalData } from "@/utils/data/personal-data";
+import ThemeToggle from "./theme-toggle";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/#projects" },
+  { label: "EduFlow", href: "/work/eduflow" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Writing", href: "/#blogs" },
+  { label: "Contact", href: "/#contact" },
+];
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isOpen]);
+
   return (
-    <nav className="bg-transparent">
-      <div className="flex items-center justify-between py-5">
-        <div className="flex flex-shrink-0 items-center">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        isScrolled
+          ? "bg-[var(--bg-primary)]/80 backdrop-blur-2xl border-b border-[var(--border-color)]/50 shadow-lg shadow-black/5"
+          : "bg-transparent backdrop-blur-0"
+      }`}
+    >
+      <div className="mx-auto px-4 sm:px-6 lg:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           <Link
             href="/"
-            className=" text-[#16f2b3] text-3xl font-bold">
-            MOHAMMAD FAHAD
+            className="text-[#16f2b3] text-lg sm:text-xl lg:text-2xl font-bold tracking-tight flex-shrink-0"
+          >
+            MF
           </Link>
-        </div>
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">ABOUT</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EXPERIENCE</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">SKILLS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#education"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EDUCATION</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#blogs"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">BLOGS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">PROJECTS</div></Link>
-          </li>
-        </ul>
-        {/* <ThemeToggle /> */}
+          <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="px-2 lg:px-3 py-1.5 lg:py-2 text-xs lg:text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-lg hover:bg-[var(--hover-bg)]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href={personalData.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 lg:gap-2 px-3 lg:px-4 py-1.5 lg:py-2 text-xs lg:text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300 shadow-lg shadow-violet-500/20"
+            >
+              <FiDownload size={12} />
+              Resume
+            </a>
+          </div>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+        </div>
       </div>
 
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        }`}
+        role="region"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+      >
+        <div className="px-4 sm:px-6 pb-4 pt-2 bg-[var(--bg-primary)]/98 backdrop-blur-2xl border-t border-[var(--border-color)]/50 space-y-0.5">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={handleLinkClick}
+              className="block px-3 py-2.5 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-lg hover:bg-[var(--hover-bg)]"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="pt-2 px-3 flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href={personalData.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleLinkClick}
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300"
+            >
+              <FiDownload size={14} />
+              Resume
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

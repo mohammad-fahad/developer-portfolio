@@ -1,97 +1,66 @@
 "use client";
 
 import { educations } from "@/utils/data/educations";
-import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
-import lottieFile from '../../../assets/lottie/study.json';
-import GlowCard from "../../helper/glow-card";
-import dynamic from "next/dynamic";
-
-const AnimationLottie = dynamic(() => import('../../helper/animation-lottie'), {
-  ssr: false, // This is the key line
-});
+import { BsBook } from "react-icons/bs";
+import { FiCalendar } from "react-icons/fi";
 
 function Education() {
   return (
-    <div id="education" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-      <Image
-        src="/section.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        loading="lazy"
-        className="absolute top-0 -z-10"
-      />
-      <div className="flex justify-center -translate-y-[1px]">
-        <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
-        </div>
+    <div id="education" className="relative z-50 my-16 lg:my-28">
+      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+        <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
+          LEARNING
+        </span>
+        <span className="w-full h-[2px] bg-[var(--section-header-bg)]"></span>
       </div>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Bootcamp & Learnings
-          </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-        </div>
+      <div className="mb-6 sm:mb-10">
+        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2 sm:mb-3">
+          Education & training
+        </p>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
+          Background and continuous learning
+        </h2>
       </div>
 
-      <div className="py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex justify-center my-auto">
-            <div className="w-full h-full">
-              <AnimationLottie animationPath={lottieFile} />
+      <div className="relative">
+        <div className="absolute left-[19px] top-2 bottom-2 w-[2px] bg-[var(--timeline-bg)] hidden sm:block" />
+
+        <div className="space-y-4 sm:space-y-6">
+          {educations.map((edu) => (
+            <div key={edu.id} className="relative flex items-start gap-4 sm:gap-8 group">
+              <div className="relative z-10 flex-shrink-0 mt-0.5 sm:mt-1">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[var(--section-header-bg)] border-2 border-violet-500/30 flex items-center justify-center group-hover:border-violet-400 transition-colors duration-300">
+                  <BsBook className="text-violet-400" size={14} />
+                </div>
+              </div>
+
+              <div className="flex-1 min-w-0 p-3 sm:p-4 lg:p-5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2 mb-1 sm:mb-2">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[var(--text-primary)]">
+                    {edu.title}
+                  </h3>
+                  <span className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs text-[var(--text-muted)] flex-shrink-0">
+                    <FiCalendar size={10} />
+                    {edu.duration}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-[var(--text-muted)] mb-1 sm:mb-2">
+                  {edu.institution}
+                </p>
+                {edu.details && (
+                  <ul className="space-y-0.5 sm:space-y-1 mt-1 sm:mt-2">
+                    {edu.details.map((item, i) => (
+                      <li key={i} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[var(--text-muted)]">
+                        <span className="w-0.5 sm:w-1 h-0.5 sm:h-1 rounded-full bg-violet-400 mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
-          </div>
-
-          <div>
-            <div className="flex flex-col gap-6">
-              {
-                educations.map(education => (
-                  <GlowCard key={education.id} identifier={`education-${education.id}`}>
-                    <div className="p-3 relative text-white">
-                      <Image
-                        src="/blur-23.svg"
-                        alt="Hero"
-                        width={1080}
-                        height={200}
-                        className="absolute bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {education.duration}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-x-8 px-3 py-5">
-                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                            {education.title}
-                          </p>
-                          <p className="text-sm sm:text-base">{education.institution}</p>
-                          {education.details && (
-                            <ul className="mt-2 list-disc list-outside pl-6 text-xs sm:text-sm text-gray-300 space-y-1">
-                              {education.details.map((item, i) => (
-                                <li key={i} className="leading-relaxed">
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-
-                        </div>
-
-                      </div>
-                    </div>
-                  </GlowCard>
-                ))
-              }
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

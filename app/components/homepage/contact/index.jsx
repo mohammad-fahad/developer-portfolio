@@ -3,7 +3,6 @@ import { personalData } from '@/utils/data/personal-data';
 import Link from 'next/link';
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
@@ -11,87 +10,70 @@ import ContactForm from './contact-form';
 
 function ContactSection() {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
+    <div id="contact" className="relative z-50 my-16 lg:my-28">
+      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+        <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           CONTACT
         </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
+        <span className="w-full h-[2px] bg-[var(--section-header-bg)]"></span>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+      <div className="mb-6 sm:mb-10">
+        <p className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2 sm:mb-3">
+          Get in touch
+        </p>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
+          {`Let's build something together`}
+        </h2>
+        <p className="text-[var(--text-muted)] mt-2 sm:mt-3 max-w-2xl text-sm sm:text-base">
+          {`Have a project in mind or just want to chat? I'm always open to discussing new opportunities and interesting ideas.`}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-start">
         <ContactForm />
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <a href={`mailto:${personalData.email}`} className="flex items-center gap-3">
-                <MdAlternateEmail
-                  className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={36}
-                />
-                <span>{personalData.email}</span>
+        
+        <div className="space-y-4 sm:space-y-6">
+          <div className="p-4 sm:p-5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
+            <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-3 sm:mb-4">Contact information</h3>
+            <div className="space-y-3 sm:space-y-4">
+              <a href={`mailto:${personalData.email}`} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--text-secondary)] hover:text-violet-300 transition-colors group">
+                <MdAlternateEmail className="text-[var(--text-muted)] group-hover:text-violet-400 transition-colors flex-shrink-0" size={18} />
+                <span className="truncate">{personalData.email}</span>
               </a>
-            </p>
 
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <a href={`tel:${personalData.phone}`} className="flex items-center gap-3">
-                <IoMdCall
-                  className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={36}
-                />
-                <span>
-                  {personalData.phone}
-                </span>
+              <a href={`tel:${personalData.phone}`} className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--text-secondary)] hover:text-violet-300 transition-colors group">
+                <IoMdCall className="text-[var(--text-muted)] group-hover:text-violet-400 transition-colors flex-shrink-0" size={18} />
+                <span>{personalData.phone}</span>
               </a>
-            </p>
 
-            <p className="text-sm md:text-xl flex items-center gap-3">
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(personalData.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3"
+                className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-[var(--text-secondary)] hover:text-violet-300 transition-colors group"
               >
-                <CiLocationOn
-                  className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={36}
-                />
-                <span>{personalData.address}</span>
+                <CiLocationOn className="text-[var(--text-muted)] group-hover:text-violet-400 transition-colors flex-shrink-0" size={18} />
+                <span className="truncate">{personalData.address}</span>
               </a>
-            </p>
-
+            </div>
           </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            <Link target="_blank" href={personalData.github}>
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.linkedIn}>
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            {personalData.twitter && <Link target="_blank" href={personalData.twitter}>
-              <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>}
-            {
-              personalData.stackOverflow && <Link target="_blank" href={personalData.stackOverflow}>
-              <FaStackOverflow
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-              </Link>}
-            {personalData.facebook && <Link target="_blank" href={personalData.facebook}>
-              <FaFacebook
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>}
+
+          <div className="p-4 sm:p-5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
+            <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-3 sm:mb-4">Find me online</h3>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Link target="_blank" href={personalData.github} className="p-2 sm:p-2.5 rounded-lg bg-[var(--tag-bg)] border border-[var(--border-light)] text-[var(--text-muted)] hover:text-violet-300 hover:border-violet-500/30 transition-all duration-300">
+                <IoLogoGithub size={18} />
+              </Link>
+              <Link target="_blank" href={personalData.linkedIn} className="p-2 sm:p-2.5 rounded-lg bg-[var(--tag-bg)] border border-[var(--border-light)] text-[var(--text-muted)] hover:text-violet-300 hover:border-violet-500/30 transition-all duration-300">
+                <BiLogoLinkedin size={18} />
+              </Link>
+              {personalData.twitter && (
+                <Link target="_blank" href={personalData.twitter} className="p-2 sm:p-2.5 rounded-lg bg-[var(--tag-bg)] border border-[var(--border-light)] text-[var(--text-muted)] hover:text-violet-300 hover:border-violet-500/30 transition-all duration-300">
+                  <FaXTwitter size={18} />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

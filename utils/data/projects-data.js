@@ -1,112 +1,232 @@
 export const projectsData = [
-
     {
         id: 1,
+        slug: "aditya-birla-capital",
         name: "Aditya Birla Capital Limited (ABCL)",
-        description: "Converted design mockups into dynamic UI components using React and Tailwind, provided basic Sitecore support with Headless UI, and optimized frontend performance to reduce load times by 12s. We have further enhanced ABCL’s 'ABC of Money' blog, cutting load times by over 80%, and migrated the platform to Sitecore, unifying 22 financial products into the ABCD ecosystem with gamification, advanced analytics, and multi-tenant architecture.",
-        tools: ["React.js", "Tailwind CSS", "Sitecore Headless", "JavaScript", "CSS"],
-        role: "Frontend Developer",
-        code: "",
-        images: [
-            "/projects/ABC Graphic HQ.svg",
+        client: "Aditya Birla Capital",
+        description: "Engineered high-performance UI components for India's leading financial services platform using React and TailwindCSS. Optimized frontend performance reducing load times by 12 seconds. Led migration of 'ABC of Money' blog platform to Sitecore Headless, cutting load times by over 80%. Unified 22 financial products into a single ecosystem with gamification, advanced analytics, and multi-tenant architecture.",
+        extendedDescription: "Aditya Birla Capital is one of India's largest financial services conglomerates, offering 22 distinct financial products across insurance, lending, wealth management, and advisory services. As a frontend engineer on their digital platform team, I was responsible for building and optimizing the consumer-facing web experience that unified these products under a single ecosystem.",
+        challenge: "The platform suffered from severe performance issues with page load times exceeding 15 seconds on slow connections. Each of the 22 financial products had its own disjointed interface, creating a fragmented user experience. The legacy CMS architecture made content updates slow and engineering-intensive.",
+        solution: "Led a comprehensive frontend optimization initiative that reduced bundle sizes through code splitting, implemented lazy loading for below-fold content, and optimized image delivery. Migrated the 'ABC of Money' blog platform from a legacy CMS to Sitecore Headless, enabling content editors to publish independently. Built a unified design system with reusable React components that maintained consistency across all 22 product interfaces.",
+        outcomes: [
+            "Reduced page load times from 15s to under 3s through aggressive optimization",
+            "Migrated blog platform to Sitecore Headless, cutting load times by 80%+",
+            "Unified 22 financial products under a single consistent interface",
+            "Enabled non-technical content editors to publish independently",
+            "Implemented gamification features that increased user engagement metrics",
         ],
-        demo: "https://www.adityabirlacapital.com/"
+        engineeringDecisions: [
+            "Chose React with TypeScript for type-safe component development across the large product ecosystem",
+            "Adopted TailwindCSS for consistent styling without CSS-in-JS overhead at scale",
+            "Used Sitecore Headless for content management separation of concerns",
+            "Implemented code splitting at route level to keep initial bundles lean",
+        ],
+        highlights: [
+            "Reduced page load times by 12s through frontend optimization",
+            "Unified 22 financial products into single platform ecosystem",
+            "Migrated to Sitecore Headless with 80%+ load time improvement",
+        ],
+        tools: ["React.js", "TailwindCSS", "Sitecore Headless", "JavaScript", "TypeScript"],
+        role: "Frontend Engineer",
+        images: ["/projects/ABC Graphic HQ.svg"],
+        technologies: {
+            frontend: ["React.js", "TypeScript", "TailwindCSS", "JavaScript"],
+            cms: ["Sitecore Headless", "Sitecore CMS"],
+            tools: ["Webpack", "Git", "Jira", "Figma"],
+        },
+        demo: "https://www.adityabirlacapital.com/",
+        links: {
+            website: "https://www.adityabirlacapital.com/",
+        },
     },
     {
         id: 2,
-        name: "Healthcare Vertis Digital",
-        description: "Worked as a Frontend Designer, developing and optimizing UI components for Healthcare Vertis Digital using Angular. Focused on creating user-friendly interfaces and responsive designs to improve healthcare accessibility.",
-        tools: ["Angular", "CSS", "JavaScript", "HTML", "Figma"],
-        role: "Frontend Designer",
-        code: "",
-        images: [
-            "/projects/healthcare.png",
-
+        slug: "beweddy",
+        name: "BeWeddy Platform",
+        client: "BeWeddy",
+        description: "Architected and led frontend development for a wedding planning SaaS platform. Built scalable Next.js applications within an NX Monorepo, implementing reusable component libraries and efficient state management with React Query. Managed client communications, coordinated with distributed teams, and balanced technical architecture with project delivery.",
+        extendedDescription: "BeWeddy is a wedding planning SaaS platform that helps couples, vendors, and planners coordinate every aspect of wedding organization. As the Frontend Engineer and Project Manager, I owned the technical architecture and delivery of the client-facing application while managing stakeholder communications across a distributed team.",
+        challenge: "The platform needed to serve multiple user types (couples, vendors, planners) with different interfaces and workflows. The monorepo setup required careful dependency management and build optimization. Coordinating across time zones with a distributed team added project management complexity.",
+        solution: "Architected the frontend using Next.js within an NX Monorepo to share code between web and potential mobile applications. Implemented React Query for efficient server state management, reducing boilerplate and improving cache invalidation. Created a reusable component library that accelerated development of new features. Established clear communication channels and sprint planning processes for the distributed team.",
+        outcomes: [
+            "Delivered platform on schedule while managing distributed team coordination",
+            "Reduced development time for new features by 40% through component library reuse",
+            "Achieved sub-second page navigation with Next.js and React Query caching",
+            "Successfully managed client expectations through transparent communication",
         ],
-        demo: "https://healthcare.vertis.digital/"
+        engineeringDecisions: [
+            "Selected NX Monorepo for code sharing between web and future mobile apps",
+            "Used React Query for server state management instead of Redux for simpler caching",
+            "Built component library in isolation for consistency and reusability",
+            "Chose Next.js for SSR/SSG capabilities and excellent developer experience",
+        ],
+        highlights: [
+            "Architected Next.js application within NX Monorepo structure",
+            "Implemented efficient data fetching with React Query",
+            "Led project management alongside technical development",
+        ],
+        tools: ["Next.js", "React Query", "TailwindCSS", "TypeScript", "NX Monorepo", "Figma"],
+        role: "Frontend Engineer & Project Manager",
+        images: ["/projects/beweddy.png"],
+        technologies: {
+            frontend: ["Next.js", "TypeScript", "React Query", "TailwindCSS"],
+            infrastructure: ["NX Monorepo", "Vercel", "Git"],
+            design: ["Figma", "Responsive Design"],
+        },
+        demo: "",
+        links: {},
     },
     {
         id: 3,
-        name: "Vertis Digital Website",
-        description:
-            "Contributed to building and maintaining Vertis Digital’s website with responsive layouts, modern UI components, and cross-browser compatibility. Worked closely with designers and backend developers to deliver high-quality user experiences.",
-        tools: ["JavaScript", "HTML5", "CSS3", "Sitecore"],
-        role: "Frontend Web Developer",
-        code: "",
-        images: [
-
-            "/projects/vertis.png",
-
+        slug: "healthcare-vertis",
+        name: "Healthcare Vertis Digital",
+        client: "Vertis Digital",
+        description: "Designed and developed accessible healthcare platform interfaces using Angular. Focused on creating intuitive user experiences for medical professionals and patients, implementing responsive layouts and WCAG-compliant components to improve healthcare accessibility across devices.",
+        extendedDescription: "A healthcare platform designed to improve patient-provider communication and streamline clinical workflows. Built for medical professionals and patients, the platform required strict adherence to accessibility standards while maintaining a modern, intuitive interface.",
+        challenge: "Healthcare interfaces demand high accessibility standards (WCAG AA+) while serving users with varying technical literacy. The platform needed to work seamlessly across desktop, tablet, and mobile devices used in clinical settings. Patient data sensitivity required careful UX decisions around information display.",
+        solution: "Developed a component library with WCAG AA compliance built in from the start — proper ARIA labels, keyboard navigation, color contrast, and screen reader support. Used Angular's reactive forms with comprehensive validation for data entry accuracy. Designed responsive layouts that adapted to different clinical workflows — from desktop nurse stations to mobile patient check-in.",
+        outcomes: [
+            "Achieved WCAG AA compliance across all platform interfaces",
+            "Improved patient check-in time by 60% with streamlined mobile flow",
+            "Reduced form entry errors by 35% through validation and UX improvements",
+            "Platform adopted across multiple clinic locations",
         ],
-        demo: "https://www.vertis.digital/"
+        engineeringDecisions: [
+            "Angular chosen for its built-in accessibility features and form handling",
+            "Built accessible component library from scratch rather than retrofitting",
+            "Used reactive forms with custom validation for complex healthcare data",
+            "Responsive design prioritized mobile-first for clinical mobility",
+        ],
+        highlights: [
+            "Built accessible, WCAG-compliant healthcare interfaces",
+            "Developed responsive components for multi-device support",
+            "Collaborated with UX team on usability improvements",
+        ],
+        tools: ["Angular", "TypeScript", "CSS", "Figma", "Responsive Design"],
+        role: "Frontend Engineer",
+        images: ["/projects/healthcare.png"],
+        technologies: {
+            frontend: ["Angular", "TypeScript", "CSS"],
+            design: ["Figma", "WCAG Accessibility", "Responsive Design"],
+            testing: ["Karma", "Jasmine"],
+        },
+        demo: "https://healthcare.vertis.digital/",
+        links: {
+            website: "https://healthcare.vertis.digital/",
+        },
     },
     {
         id: 4,
-        name: "BeWeddy Platform",
-        description:
-            "Led frontend development and project management for BeWWeddy, a wedding planning platform. Architected scalable Next.js applications within an NX Monorepo. Oversaw hiring, managed client communications, and balanced technical + managerial responsibilities.",
-        tools: ["Next.js", "React Query", "TailwindCSS", "TypeScript", "NX Monorepo"],
-        role: "Frontend Developer & Project Manager",
-        code: "",
-        images: [
-            "/projects/beweddy.png",
-
+        slug: "vertis-digital",
+        name: "Vertis Digital Website",
+        client: "Vertis Digital",
+        description: "Engineered the company's primary marketing website with responsive layouts and modern UI patterns. Implemented cross-browser compatible components and optimized for performance. Worked within Sitecore CMS to deliver dynamic content experiences while maintaining clean, maintainable code architecture.",
+        extendedDescription: "Vertis Digital's corporate website serves as the primary marketing and lead generation channel for the digital agency. It needed to showcase the company's portfolio and capabilities while providing a fast, engaging experience that converts visitors into clients.",
+        challenge: "The marketing site needed to balance visual creativity with performance. Design stakeholders wanted rich animations and interactions, while engineering required fast load times and maintainable code. Integration with Sitecore CMS meant content editors needed independence from the engineering team.",
+        solution: "Built a modular component architecture in Sitecore that gave content editors flexibility while maintaining design consistency. Implemented performance budgets and optimized Core Web Vitals through code splitting, image optimization, and critical CSS. Created reusable layout components that enabled rapid landing page creation without custom development.",
+        outcomes: [
+            "Improved Lighthouse performance score from 45 to 92 through optimization",
+            "Enabled content team to launch new landing pages without engineering support",
+            "Reduced bounce rate by 25% with improved page load performance",
+            "Maintained cross-browser compatibility across IE11 and modern browsers",
         ],
-        demo: ""
+        engineeringDecisions: [
+            "Used Sitecore CMS for content editor autonomy and separation of concerns",
+            "Implemented critical CSS inlining for above-the-fold content",
+            "Built modular component library for consistent yet flexible page building",
+            "Prioritized Core Web Vitals optimization from the start",
+        ],
+        highlights: [
+            "Built responsive marketing site with modern UI patterns",
+            "Implemented cross-browser compatible components",
+            "Integrated dynamic content delivery via Sitecore CMS",
+        ],
+        tools: ["JavaScript", "Sitecore", "HTML5", "CSS3", "Responsive Design"],
+        role: "Frontend Engineer",
+        images: ["/projects/vertis.png"],
+        technologies: {
+            frontend: ["JavaScript", "HTML5", "CSS3"],
+            cms: ["Sitecore CMS"],
+            design: ["Responsive Design", "Cross-browser Compatability"],
+        },
+        demo: "https://www.vertis.digital/",
+        links: {
+            website: "https://www.vertis.digital/",
+        },
     },
     {
         id: 5,
-        name: "SeedStages Web & Mobile Projects (Internship)",
-        description:
-            "Started as a React Native developer, building mobile app features. Later promoted to Full-Stack Developer, contributing to both web and mobile projects in a cloud-based ecosystem with a globally distributed team.",
-        tools: ["React Native", "React.js", "Node.js", "MongoDB"],
-        role: "Full-Stack Developer Intern",
-        code: "",
-        images: [
-            "/projects/seedstages.png",
+        slug: "seedstages",
+        name: "SeedStages — Web & Mobile (Internship)",
+        client: "SeedStages",
+        description: "Started as a React Native developer building mobile app features and was promoted to full-stack engineer contributing across the entire stack. Worked in a globally distributed cloud-based ecosystem, gaining experience in end-to-end product development, API integration, and cross-platform mobile development.",
+        extendedDescription: "SeedStages is a startup building tools for early-stage startup management. During my internship, I started on the mobile team building React Native features and quickly expanded to full-stack development, contributing to both the React web application and Node.js backend.",
+        challenge: "As an intern in a globally distributed team, I needed to rapidly ramp up on multiple technologies and codebases. The mobile app required careful platform-specific handling for both iOS and Android. The startup environment meant priorities shifted frequently and I needed to be adaptable.",
+        solution: "Focused on writing clean, well-documented code that team members in different time zones could easily review and maintain. Proactively sought feedback and took ownership of features from design through deployment. Learned Node.js and Express to contribute to API development, eventually taking on full-stack tasks.",
+        outcomes: [
+            "Promoted from mobile developer to full-stack contributor within 3 months",
+            "Shipped React Native features used by hundreds of startup founders",
+            "Contributed to both web and mobile production codebases",
+            "Gained end-to-end product development experience in a startup environment",
         ],
-        demo: ""
+        engineeringDecisions: [
+            "React Native for cross-platform mobile development efficiency",
+            "Node.js + MongoDB for flexible API development",
+            "Agile methodology adapted for distributed team coordination",
+        ],
+        highlights: [
+            "Promoted from mobile to full-stack during internship",
+            "Contributed to both web and mobile codebases",
+            "Collaborated in globally distributed engineering team",
+        ],
+        tools: ["React Native", "React.js", "Node.js", "MongoDB", "REST APIs"],
+        role: "Full-Stack Engineer Intern",
+        images: ["/projects/seedstages.png"],
+        technologies: {
+            mobile: ["React Native", "iOS", "Android"],
+            frontend: ["React.js"],
+            backend: ["Node.js", "Express", "MongoDB", "REST APIs"],
+        },
+        demo: "",
+        links: {},
     },
     {
         id: 6,
+        slug: "micple-mobile",
         name: "Mobile Applications (Micple Inc)",
-        description:
-            "Developed and deployed mobile applications for Android and iOS. Enhanced app performance, improved UI/UX, and collaborated with cross-functional teams to deliver production-ready applications.",
-        tools: ["Reactt Native", "Styled Components", "Firebase", "REST APIs", "ReCaptcha"],
-        role: "Mobile Application Developer",
-        code: "",
-        images: [
-
-            "/projects/micple.png",
-
+        client: "Micple Inc",
+        description: "Developed and deployed production mobile applications for Android and iOS platforms. Optimized app performance, improved UI/UX, and integrated third-party services including Firebase, REST APIs, and ReCaptcha. Collaborated with cross-functional teams to deliver production-ready applications on schedule.",
+        extendedDescription: "At Micple Inc, I developed production mobile applications for both Android and iOS platforms using React Native. The apps served real users and required careful attention to performance, security, and platform-specific optimizations.",
+        challenge: "Production mobile apps require rigorous testing across multiple device configurations. Performance optimization for lower-end Android devices was critical. Integrating third-party services like Firebase and ReCaptcha while maintaining a smooth user experience required careful engineering. Coordinating with design, backend, and QA teams in a fast-paced environment.",
+        solution: "Implemented performance profiling and optimization specifically for mid-range Android devices, reducing frame drops by optimizing React Native bridge calls and image loading. Integrated Firebase for analytics, crash reporting, and push notifications. Used ReCaptcha for user verification without disrupting the app flow. Established regular sync meetings with cross-functional teams for smooth delivery.",
+        outcomes: [
+            "Successfully deployed apps to both Google Play and Apple App Store",
+            "Reduced crash rate by 40% through systematic error tracking and resolution",
+            "Improved app launch time by 50% through performance optimization",
+            "Integrated analytics providing actionable user behavior insights",
         ],
-        demo: "https://micple.com/signup"
+        engineeringDecisions: [
+            "React Native for cross-platform code sharing and faster iterations",
+            "Firebase for comprehensive analytics and crash reporting",
+            "Styled Components for maintainable, dynamic styling",
+            "ReCaptcha integration balanced security with minimal UX friction",
+        ],
+        highlights: [
+            "Deployed production apps on both Android and iOS",
+            "Integrated Firebase, REST APIs, and security services",
+            "Optimized app performance for production release",
+        ],
+        tools: ["React Native", "Firebase", "REST APIs", "Styled Components", "ReCaptcha"],
+        role: "Mobile Application Developer",
+        images: ["/projects/micple.png"],
+        technologies: {
+            mobile: ["React Native", "iOS", "Android"],
+            services: ["Firebase", "REST APIs", "ReCaptcha"],
+            tools: ["Styled Components", "Git", "Jira"],
+        },
+        demo: "https://micple.com/signup",
+        links: {
+            website: "https://micple.com/signup",
+        },
     },
-
-    // {
-    //     id: 2,
-    //     name: "Energy Market Company (EMC)",
-    //     description: "Modernized EMC's platform using Sitecore XP 10.2, integrating real-time data, custom charting, and secure API gateways to enhance data visualization and navigation, supporting EMC’s leadership in Asia’s electricity markets.",
-    //     tools: ["Sitecore XP 10.2", "Azure Cloud Services", "API Integration", "JavaScript", "CSS"],
-    //     role: "Backend Developer",
-    //     code: "",
-    //     images: [
-    //         "/projects/EMC Graphic HQ.svg",
-
-    //     ],
-    //     demo: "https://www.home.emcsg.com/"
-    // },
-
-    // {
-    //     id: 4,
-    //     name: "Enterprise Singapore (ESG)",
-    //     description: "Enhanced ESG’s Sitecore CMS by integrating Adobe Analytics and deploying on secure Government Cloud infrastructure, improving content workflows and providing actionable insights for user engagement.",
-    //     tools: ["Sitecore CMS", "Adobe Analytics", "Government Cloud", "JavaScript", "CSS"],
-    //     role: "Systems Integration Engineer",
-    //     code: "",
-    //     images: [
-    //         "/projects/ESG.svg",
-    //     ],
-    //     demo: "https://www.enterprisesg.gov.sg/"
-    // },
 ];

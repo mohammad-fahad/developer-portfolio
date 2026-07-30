@@ -4,10 +4,13 @@ import { personalData } from "@/utils/data/personal-data";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+  const devUsername = personalData.devUsername || "mohammad-fahad";
+  const res = await fetch(`https://dev.to/api/articles?username=${devUsername}`, {
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    return [];
   }
 
   const data = await res.json();
@@ -15,17 +18,17 @@ async function getBlogs() {
 };
 
 async function page() {
-  const blogs = await getBlogs();
+  const blogs = await getBlogs().catch(() => []);
 
   return (
     <div className="py-8">
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-2xl rounded-md">
+          <span className="w-24 h-[2px] bg-[var(--section-header-bg)]"></span>
+          <span className="bg-[var(--section-header-bg)] w-fit text-[var(--text-primary)] p-2 px-5 text-2xl rounded-md">
             All Blog
           </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+          <span className="w-24 h-[2px] bg-[var(--section-header-bg)]"></span>
         </div>
       </div>
 
