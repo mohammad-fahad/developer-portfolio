@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Mohammad Fahad — Product-Focused Full Stack Engineer | SaaS & Next.js Developer",
   description:
-    "Mohammad Fahad is a product-focused full stack engineer building scalable SaaS applications. Specializing in Next.js, TypeScript, multi-tenant architecture, and production-ready software. Creator of EduFlow, a multi-tenant Institution Operating System.",
+    "Mohammad Fahad is a product-focused full stack engineer building scalable SaaS applications. Specializing in Next.js, TypeScript, multi-tenant architecture, and production-ready software. Creator of EduFlow, with case studies in clinical administration, Go/PostgreSQL systems, financial transaction safety and interactive 3D experiences.",
   keywords: [
     "Mohammad Fahad",
     "Full Stack Engineer",
@@ -23,6 +23,11 @@ export const metadata = {
     "Bangladesh Software Developer",
     "Product Engineer",
     "Multi-tenant SaaS",
+    "PostgreSQL",
+    "MongoDB",
+    "Doctor Tracker",
+    "Nitro 3D",
+    "NovaPay",
   ],
   authors: [{ name: "Mohammad Fahad" }],
   creator: "Mohammad Fahad",
@@ -35,7 +40,7 @@ export const metadata = {
     siteName: "Mohammad Fahad — Portfolio",
     title: "Mohammad Fahad — Product-Focused Full Stack Engineer",
     description:
-      "Building scalable SaaS applications with modern full-stack architecture. Next.js, TypeScript, multi-tenant systems, and production engineering.",
+      "Product-focused full-stack engineering: multi-tenant SaaS, Next.js, TypeScript, PostgreSQL, production engineering and selected full-stack case studies.",
     images: [
       {
         url: "/card.png",
@@ -49,7 +54,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mohammad Fahad — Product-Focused Full Stack Engineer",
     description:
-      "Building scalable SaaS applications with modern full-stack architecture. Next.js, TypeScript, multi-tenant systems, and production engineering.",
+      "Product-focused full-stack engineering: multi-tenant SaaS, Next.js, TypeScript, PostgreSQL, production engineering and selected full-stack case studies.",
     images: ["/card.png"],
     creator: "@Mohamma52324377",
   },
@@ -77,10 +82,10 @@ export default function RootLayout({ children }) {
     "@type": "Person",
     name: "Mohammad Fahad",
     url: "https://mohammadfahad.com",
-    image: "/about-me.png",
+    image: "/AboutMe.jpg",
     jobTitle: "Product-Focused Full Stack Engineer",
     description:
-      "Product-focused full stack engineer building scalable SaaS applications. Creator of EduFlow, a multi-tenant Institution Operating System.",
+      "Product-focused full stack engineer building scalable SaaS applications. Creator of EduFlow, with case studies in clinical administration, Go/PostgreSQL systems, financial transaction safety and interactive 3D experiences.",
     sameAs: [
       "https://github.com/mohammad-fahad",
       "https://www.linkedin.com/in/mohammad--fahad/",
@@ -94,8 +99,11 @@ export default function RootLayout({ children }) {
       "SaaS Architecture",
       "Multi-tenant Systems",
       "PostgreSQL",
+      "MongoDB",
       "Prisma",
       "Supabase",
+      "Express",
+      "React Three Fiber",
       "Full Stack Development",
     ],
     alumniOf: {

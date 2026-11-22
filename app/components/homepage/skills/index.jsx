@@ -7,25 +7,25 @@ const capabilityCategories = [
     icon: <FiLayout size={18} />,
     title: "Frontend Architecture",
     description: "Building responsive, accessible, and performant user interfaces with modern component architecture.",
-    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "Component Design", "Responsive Systems"],
+    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "React Three Fiber", "Responsive Systems"],
   },
   {
     icon: <FiServer size={18} />,
     title: "Backend & Data",
     description: "Designing scalable APIs, data models, and server-side logic for production applications.",
-    skills: ["Node.js", "Express", "Prisma", "PostgreSQL", "REST APIs", "Supabase"],
+    skills: ["Node.js", "Express", "Go", "Prisma", "PostgreSQL", "MongoDB", "Redis / BullMQ", "REST APIs"],
   },
   {
     icon: <FiShield size={18} />,
-    title: "SaaS Engineering",
+    title: "SaaS & Security",
     description: "Architecting multi-tenant systems, role-based access control, and secure authentication flows.",
-    skills: ["Multi-tenancy", "RBAC", "Authentication", "Authorization", "Workflow Design", "API Security"],
+    skills: ["Multi-tenancy", "RBAC", "Row-Level Security", "Supabase Auth", "JWT", "API Security", "Audit Trails"],
   },
   {
     icon: <FiTerminal size={18} />,
     title: "Production Engineering",
     description: "Shipping reliable software with testing, CI/CD, monitoring, and performance optimization.",
-    skills: ["Testing", "CI/CD", "Docker", "Performance", "Security Hardening", "Deployment"],
+    skills: ["Vitest", "Playwright", "CI/CD", "Docker", "Server-Sent Events", "Performance", "Deployment"],
   },
 ];
 

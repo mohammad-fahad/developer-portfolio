@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 4);
+  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 6);
 
   return (
     <div id="projects" className="relative z-50 my-16 lg:my-28">
@@ -76,6 +76,27 @@ const Projects = () => {
                       <FiExternalLink size={10} />
                     </span>
                   )}
+                  {project.links?.github && (
+                    <span
+                      role="button"
+                      tabIndex={0}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.links.github, '_blank', 'noopener,noreferrer');
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(project.links.github, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] rounded-lg border border-[var(--border-light)] hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300 cursor-pointer"
+                    >
+                      GitHub
+                      <FiExternalLink size={10} />
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -109,7 +130,7 @@ const Projects = () => {
         ))}
       </div>
 
-      {projectsData.length > 4 && (
+      {projectsData.length > 6 && (
         <div className="flex justify-center mt-6 sm:mt-8">
           <button
             onClick={() => setShowAll(!showAll)}

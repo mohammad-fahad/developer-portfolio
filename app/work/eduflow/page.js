@@ -85,12 +85,12 @@ function EduFlowCaseStudy() {
               <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiUser className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
                 <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Role</p>
-                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">Solo Full-Stack Engineer</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">Founder / Product Engineer</p>
               </div>
               <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiCalendar className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
                 <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-0.5">Timeline</p>
-                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">In Development</p>
+                <p className="text-[var(--text-primary)] text-xs sm:text-sm font-medium">May 2026 - Present</p>
               </div>
               <div className="p-3 sm:p-4 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)]/60">
                 <FiCpu className="text-violet-400 mb-1.5 sm:mb-2" size={14} />
@@ -106,12 +106,12 @@ function EduFlowCaseStudy() {
 
             {/* CTA */}
             <Link
-              href="https://edu-flow-one-pearl.vercel.app/"
+              href="https://www.tryeduflow.com/"
               target="_blank"
               className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300 shadow-lg shadow-violet-500/20"
             >
               <BiWorld size={14} />
-              View Website
+              View Production App
               <FiArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -123,7 +123,7 @@ function EduFlowCaseStudy() {
               <ul className="space-y-2.5 sm:space-y-3">
                 {[
                   "Multi-tenant architecture with institution-level data isolation",
-                  "Role-based access control with 8 hierarchical roles",
+                  "Role-based access control with a 9-level role hierarchy",
                   "Unified academic, financial, and communication workflows",
                   "Production-grade security, testing, and CI/CD pipeline",
                   "Built with Next.js App Router, TypeScript, Prisma, PostgreSQL",
@@ -227,7 +227,7 @@ function EduFlowCaseStudy() {
             <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5">
               <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Role Hierarchy</h3>
               <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
-                Permission-driven access control with 8 hierarchical roles. Each role has
+                Permission-driven access control with a 9-level role hierarchy. Each active role has
                 granular permissions that can be customized per institution.
               </p>
             </div>
@@ -254,7 +254,7 @@ function EduFlowCaseStudy() {
           />
           <DecisionCard
             title="RBAC Permission System"
-            decision="Built a hierarchical role system instead of hardcoded dashboards. Roles include Super Admin, Institution Owner, Admin, Moderator, Finance, Teacher, Parent, and Student."
+            decision="Built a hierarchical role system instead of hardcoded dashboards. Active roles include Super Admin, Owner, Moderator, Finance, Branch Moderator, Branch Finance, Teacher, Parent and Student."
             why="Educational institutions have complex organizational structures that require flexible, granular access control."
             impact="Each user sees exactly what they need — no more, no less. New roles can be added without code changes."
           />
@@ -303,7 +303,7 @@ function EduFlowCaseStudy() {
           <ChallengeCard
             title="Flexible RBAC System"
             challenge="Different institution roles require completely different workflows and data access. Hardcoded dashboards would not scale across diverse institution types."
-            approach="Built a permission-driven access control system with 8 hierarchical roles, each with granular permissions configurable per institution."
+            approach="Built a permission-driven access control system with a 9-level role hierarchy, each with granular permissions configurable per institution."
             impact="Allowed future role expansion without code changes. Each user sees exactly the interface and data their role permits."
           />
           <ChallengeCard

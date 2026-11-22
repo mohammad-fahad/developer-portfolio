@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { FiArrowUpRight, FiExternalLink, FiArrowLeft } from "react-icons/fi";
+import { FiArrowUpRight, FiExternalLink, FiArrowLeft, FiGithub } from "react-icons/fi";
 import { BsCheckCircle } from "react-icons/bs";
+import ScreenshotGallery from "@/app/components/case-study/screenshot-gallery";
 
 function SectionHeader({ label, title, description }) {
   return (
@@ -68,7 +69,19 @@ function ProjectDetail({ project }) {
                   className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300 shadow-lg shadow-violet-500/20"
                 >
                   <FiExternalLink size={14} />
-                  Visit Website
+                  View Live Demo
+                  <FiArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              )}
+              {project.links?.github && (
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] border border-[var(--border-light)] rounded-full hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
+                >
+                  <FiGithub size={14} />
+                  View Repository
                   <FiArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               )}
@@ -172,6 +185,17 @@ function ProjectDetail({ project }) {
               </div>
             ))}
           </div>
+        </section>
+      )}
+
+      {project.screenshots && project.screenshots.length > 0 && (
+        <section className="mb-12 sm:mb-16 lg:mb-20">
+          <SectionHeader
+            label="VISUAL EVIDENCE"
+            title="Screenshots from the actual implementation"
+            description="Captured from local runs or approved project assets; no fabricated interfaces."
+          />
+          <ScreenshotGallery screenshots={project.screenshots} />
         </section>
       )}
 
