@@ -8,8 +8,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  const experience = experiences.find((e) => e.slug === params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const experience = experiences.find((e) => e.slug === slug);
   if (!experience) return {};
   return {
     title: `${experience.company} — ${experience.title} | Mohammad Fahad`,
@@ -17,8 +18,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ExperiencePage({ params }) {
-  const experience = experiences.find((e) => e.slug === params.slug);
+export default async function ExperiencePage({ params }) {
+  const { slug } = await params;
+  const experience = experiences.find((e) => e.slug === slug);
   if (!experience) notFound();
   return <ExperienceDetail experience={experience} />;
 }

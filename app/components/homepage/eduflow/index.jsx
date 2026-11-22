@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { FiExternalLink, FiCheck, FiArrowUpRight } from "react-icons/fi";
 import { BsShieldCheck, BsLayers, BsPeople, BsGear } from "react-icons/bs";
@@ -13,40 +11,40 @@ const architectureHighlights = [
   {
     icon: <BsPeople size={18} />,
     title: "Role-Based Access Control",
-    description: "Hierarchical role system spanning Super Admin, Institution Admin, Teachers, Students, and Parents — each with granular permissions.",
+    description: "Nine-level role hierarchy spanning platform, institution, branch, staff, parent and student contexts with server-side permission checks.",
   },
   {
     icon: <BsShieldCheck size={18} />,
     title: "Security Hardening",
-    description: "Row-level security, API rate limiting, input validation, CSRF protection, and secure session management across all tenant boundaries.",
+    description: "Row-level security, server-side tenant guards, input validation, rate limiting and secure session management across tenant boundaries.",
   },
   {
     icon: <BsGear size={18} />,
     title: "Production Engineering",
-    description: "Comprehensive testing strategy, error monitoring, performance optimization, and CI/CD pipeline for reliable deployments.",
+    description: "Vitest and Playwright coverage, guarded migrations, error monitoring and CI/CD for reliable iteration.",
   },
 ];
 
 const techStack = [
-  { category: "Frontend", items: ["Next.js App Router", "TypeScript", "TailwindCSS", "React Query"] },
-  { category: "Backend", items: ["Next.js API Routes", "Prisma ORM", "PostgreSQL", "Supabase Auth"] },
+  { category: "Frontend", items: ["Next.js App Router", "TypeScript", "TailwindCSS"] },
+  { category: "Backend", items: ["Server Actions", "Prisma ORM", "PostgreSQL", "Supabase Auth"] },
   { category: "Infrastructure", items: ["Docker", "CI/CD", "Vercel", "GitHub Actions"] },
-  { category: "Quality", items: ["Jest", "React Testing Library", "E2E Tests", "Lighthouse CI"] },
+  { category: "Quality", items: ["Vitest", "Playwright", "Prisma validation", "Type checking"] },
 ];
 
 const workflows = [
-  "Attendance management with real-time tracking",
-  "Finance workflows including fee collection and invoicing",
-  "Teacher workflow automation (assignments, grading, reports)",
-  "Parent portal for student progress and communication",
-  "Notification system (email, in-app, push)",
-  "Institution ownership hierarchy and management",
+  "Student lifecycle, attendance and academic results",
+  "Homework, submissions and rubric-based grading",
+  "Fee collection, receipts and operational reconciliation",
+  "Notices, in-app notifications and governed email campaigns",
+  "Parent and student portals for attendance, fees and results",
+  "Institution, branch and role hierarchy management",
 ];
 
 function EduFlowSection() {
   return (
     <section id="eduflow" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           FLAGSHIP PROJECT
         </span>
@@ -58,7 +56,7 @@ function EduFlowSection() {
           <div className="mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-[10px] sm:text-xs font-medium mb-3 sm:mb-4">
               <span className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-violet-400" />
-              SaaS &bull; Multi-tenant &bull; Production-ready
+              SaaS &bull; Multi-tenant &bull; Active development
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-1 sm:mb-2">
               EduFlow
@@ -72,17 +70,17 @@ function EduFlowSection() {
             <div>
               <h3 className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-1.5 sm:mb-2">The Problem</h3>
               <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
-                Educational institutions struggle with fragmented digital operations — separate systems for attendance, 
-                finance, communication, and administration. No unified platform exists that connects all stakeholders 
-                (administrators, teachers, students, parents) in a secure, scalable way.
+                Educational institutions often rely on fragmented tools for attendance, fee operations, communication
+                and administration. EduFlow explores a unified, tenant-scoped model that connects administrators,
+                teachers, students and parents in one system.
               </p>
             </div>
             <div>
               <h3 className="text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-1.5 sm:mb-2">The Solution</h3>
               <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
-                EduFlow is a multi-tenant SaaS platform that unifies institution operations into a single, 
-                scalable system. Built with modern full-stack architecture, it serves multiple institutions 
-                from a single codebase while maintaining complete data isolation and role-based access.
+                EduFlow is a founder-led, multi-tenant SaaS platform that brings institution operations into a
+                single system. It serves multiple tenants from one codebase with tenant-scoped data boundaries,
+                a nine-level role hierarchy and server-side permission checks.
               </p>
             </div>
           </div>
@@ -91,7 +89,9 @@ function EduFlowSection() {
             {architectureHighlights.map((item, i) => (
               <div
                 key={i}
-                className="p-3 sm:p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/30 transition-colors duration-300"
+                data-reveal
+                data-tilt
+                className="tilt-card p-3 sm:p-4 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/30 transition-colors duration-300"
               >
                 <div className="text-violet-400 mb-2 sm:mb-3">{item.icon}</div>
                 <h4 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-1 sm:mb-1.5">{item.title}</h4>
@@ -142,12 +142,12 @@ function EduFlowSection() {
               <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-3 sm:mb-4">Production Readiness</h3>
               <div className="space-y-2 sm:space-y-2.5">
                 {[
-                  "Comprehensive test coverage (unit, integration, E2E)",
-                  "Security hardening & vulnerability scanning",
-                  "Performance optimization & Lighthouse audits",
-                  "Error monitoring & logging infrastructure",
-                  "CI/CD pipeline with automated testing",
-                  "Docker containerization for consistent deployments",
+                  "Unit and end-to-end test coverage with Vitest and Playwright",
+                  "Guarded Prisma migration workflow",
+                  "Server-side tenant and permission checks",
+                  "Error monitoring and structured logging",
+                  "CI with lint, typecheck and automated tests",
+                  "Docker Compose for local infrastructure",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2 sm:gap-2.5 text-xs sm:text-sm text-[var(--text-secondary)]">
                     <FiCheck className="text-emerald-400 mt-0.5 flex-shrink-0" size={10} />

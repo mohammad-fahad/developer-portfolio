@@ -11,7 +11,7 @@ import ContactForm from './contact-form';
 function ContactSection() {
   return (
     <div id="contact" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           CONTACT
         </span>

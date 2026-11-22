@@ -1,4 +1,5 @@
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
@@ -7,12 +8,23 @@ import Navbar from "./components/navbar";
 import ThemeProvider from "./components/theme-provider";
 import "./css/globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata = {
   title: "Mohammad Fahad — Product-Focused Full Stack Engineer | SaaS & Next.js Developer",
   description:
-    "Mohammad Fahad is a product-focused full stack engineer building scalable SaaS applications. Specializing in Next.js, TypeScript, multi-tenant architecture, and production-ready software. Creator of EduFlow, a multi-tenant Institution Operating System.",
+    "Mohammad Fahad is a product-focused full stack engineer building scalable SaaS applications with Next.js, TypeScript, multi-tenant architecture and production engineering. Creator of EduFlow, with case studies across full-stack systems, fintech and interactive 3D experiences.",
   keywords: [
     "Mohammad Fahad",
     "Full Stack Engineer",
@@ -23,11 +35,16 @@ export const metadata = {
     "Bangladesh Software Developer",
     "Product Engineer",
     "Multi-tenant SaaS",
+    "PostgreSQL",
+    "MongoDB",
+    "Doctor Tracker",
+    "Nitro 3D",
+    "NovaPay",
   ],
   authors: [{ name: "Mohammad Fahad" }],
   creator: "Mohammad Fahad",
   publisher: "Mohammad Fahad",
-  metadataBase: new URL("https://mohammadfahad.com"),
+  metadataBase: new URL("https://portfolio-of-mohammadfahad.netlify.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -35,7 +52,7 @@ export const metadata = {
     siteName: "Mohammad Fahad — Portfolio",
     title: "Mohammad Fahad — Product-Focused Full Stack Engineer",
     description:
-      "Building scalable SaaS applications with modern full-stack architecture. Next.js, TypeScript, multi-tenant systems, and production engineering.",
+      "Product-focused full-stack engineering: multi-tenant SaaS, Next.js, TypeScript, PostgreSQL, production engineering and selected full-stack case studies.",
     images: [
       {
         url: "/card.png",
@@ -49,7 +66,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Mohammad Fahad — Product-Focused Full Stack Engineer",
     description:
-      "Building scalable SaaS applications with modern full-stack architecture. Next.js, TypeScript, multi-tenant systems, and production engineering.",
+      "Product-focused full-stack engineering: multi-tenant SaaS, Next.js, TypeScript, PostgreSQL, production engineering and selected full-stack case studies.",
     images: ["/card.png"],
     creator: "@Mohamma52324377",
   },
@@ -76,11 +93,11 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Mohammad Fahad",
-    url: "https://mohammadfahad.com",
-    image: "/about-me.png",
+    url: "https://portfolio-of-mohammadfahad.netlify.app",
+    image: "/AboutMe.jpg",
     jobTitle: "Product-Focused Full Stack Engineer",
     description:
-      "Product-focused full stack engineer building scalable SaaS applications. Creator of EduFlow, a multi-tenant Institution Operating System.",
+      "Product-focused full stack engineer building scalable SaaS applications. Creator of EduFlow, with case studies across full-stack systems, fintech and interactive 3D experiences.",
     sameAs: [
       "https://github.com/mohammad-fahad",
       "https://www.linkedin.com/in/mohammad--fahad/",
@@ -94,14 +111,14 @@ export default function RootLayout({ children }) {
       "SaaS Architecture",
       "Multi-tenant Systems",
       "PostgreSQL",
+      "MongoDB",
       "Prisma",
       "Supabase",
+      "Express",
+      "Three.js",
+      "GSAP",
       "Full Stack Development",
     ],
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Bangladesh University of Business and Technology",
-    },
   };
 
   return (
@@ -125,17 +142,15 @@ export default function RootLayout({ children }) {
           }}
         />
         {gtmId && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${gtmId}');
-              `,
-            }}
-          />
+          <Script id="gtm" strategy="afterInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${gtmId}');
+            `}
+          </Script>
         )}
         <script
           type="application/ld+json"
@@ -144,7 +159,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
         {gtmId && (
           <noscript
             dangerouslySetInnerHTML={{

@@ -53,7 +53,7 @@ function Navbar() {
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           <Link
             href="/"
-            className="text-[#16f2b3] text-lg sm:text-xl lg:text-2xl font-bold tracking-tight flex-shrink-0"
+            className="text-accent text-lg sm:text-xl lg:text-2xl font-bold tracking-tight flex-shrink-0"
           >
             MF
           </Link>
@@ -95,40 +95,39 @@ function Navbar() {
         </div>
       </div>
 
-      <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-        }`}
-        role="region"
-        aria-label="Mobile navigation"
-        aria-hidden={!isOpen}
-      >
-        <div className="px-4 sm:px-6 pb-4 pt-2 bg-[var(--bg-primary)]/98 backdrop-blur-2xl border-t border-[var(--border-color)]/50 space-y-0.5">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={handleLinkClick}
-              className="block px-3 py-2.5 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-lg hover:bg-[var(--hover-bg)]"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-2 px-3 flex items-center gap-2">
-            <ThemeToggle />
-            <a
-              href={personalData.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleLinkClick}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300"
-            >
-              <FiDownload size={14} />
-              Resume
-            </a>
+      {isOpen && (
+        <div
+          className="md:hidden"
+          role="region"
+          aria-label="Mobile navigation"
+        >
+          <div className="px-4 sm:px-6 pb-4 pt-2 bg-[var(--bg-primary)]/95 backdrop-blur-2xl border-t border-[var(--border-color)]/50 space-y-0.5">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="block px-3 py-2.5 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 rounded-lg hover:bg-[var(--hover-bg)]"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-2 px-3 flex items-center gap-2">
+              <ThemeToggle />
+              <a
+                href={personalData.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300"
+              >
+                <FiDownload size={14} />
+                Resume
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

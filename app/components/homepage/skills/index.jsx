@@ -7,32 +7,32 @@ const capabilityCategories = [
     icon: <FiLayout size={18} />,
     title: "Frontend Architecture",
     description: "Building responsive, accessible, and performant user interfaces with modern component architecture.",
-    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "Component Design", "Responsive Systems"],
+    skills: ["React", "Next.js", "TypeScript", "TailwindCSS", "React Three Fiber", "Responsive Systems"],
   },
   {
     icon: <FiServer size={18} />,
     title: "Backend & Data",
     description: "Designing scalable APIs, data models, and server-side logic for production applications.",
-    skills: ["Node.js", "Express", "Prisma", "PostgreSQL", "REST APIs", "Supabase"],
+    skills: ["Node.js", "Express", "Go", "Prisma", "PostgreSQL", "MongoDB", "Redis / BullMQ", "REST APIs"],
   },
   {
     icon: <FiShield size={18} />,
-    title: "SaaS Engineering",
+    title: "SaaS & Security",
     description: "Architecting multi-tenant systems, role-based access control, and secure authentication flows.",
-    skills: ["Multi-tenancy", "RBAC", "Authentication", "Authorization", "Workflow Design", "API Security"],
+    skills: ["Multi-tenancy", "RBAC", "Row-Level Security", "Supabase Auth", "JWT", "API Security", "Audit Trails"],
   },
   {
     icon: <FiTerminal size={18} />,
     title: "Production Engineering",
     description: "Shipping reliable software with testing, CI/CD, monitoring, and performance optimization.",
-    skills: ["Testing", "CI/CD", "Docker", "Performance", "Security Hardening", "Deployment"],
+    skills: ["Vitest", "Playwright", "CI/CD", "Docker", "Server-Sent Events", "Performance", "Deployment"],
   },
 ];
 
 function Skills() {
   return (
     <div id="skills" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           EXPERTISE
         </span>
@@ -52,7 +52,9 @@ function Skills() {
         {capabilityCategories.map((category, i) => (
           <div
             key={i}
-            className="p-4 sm:p-5 lg:p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 group"
+            data-reveal
+            data-tilt
+            className="tilt-card p-4 sm:p-5 lg:p-6 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 group"
           >
             <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
               <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-colors duration-300 flex-shrink-0">

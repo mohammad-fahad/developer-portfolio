@@ -4,9 +4,9 @@ export const personalData = {
   designation: "Product-focused Full Stack Engineer building scalable SaaS applications",
   subheading: `I design, architect, and ship production-grade SaaS platforms.
 From multi-tenant systems to role-based access control — I build software that scales.
-Currently building EduFlow, a multi-tenant Institution Operating System.`,
+Currently building EduFlow, with selected work across full-stack, fintech and 3D web experiences.`,
   description:
-    "I'm a product-focused full stack engineer who builds scalable SaaS applications end-to-end. With deep experience in Next.js, TypeScript, and modern full-stack architecture, I specialize in designing multi-tenant systems, implementing RBAC and permission hierarchies, and shipping production-ready software. My flagship project, EduFlow, is a multi-tenant Institution Operating System SaaS that demonstrates SaaS architecture, multi-tenancy, role-based access control, and production engineering. I take ownership of the full product lifecycle — from architecture decisions to deployment — and I'm passionate about building software that solves real problems at scale.",
+    "I'm a product-focused full stack engineer who owns products from architecture through delivery. My flagship, EduFlow, is a multi-tenant institution operating system built with Next.js, TypeScript, Prisma, PostgreSQL and Supabase, with tenant isolation, RBAC and production engineering controls. I also build full-stack systems across clinical administration, Go/PostgreSQL task platforms, financial transaction safety and interactive 3D experiences. I care about API design, database modeling, security and shipping software that solves real problems.",
   email: "mail.mohammadfahad@gmail.com",
   phone: "+8801795555018",
   address: "Matuail, Dhaka - 1362, Bangladesh",

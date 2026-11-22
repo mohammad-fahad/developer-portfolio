@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 4);
+  const displayedProjects = showAll ? projectsData : projectsData.slice(0, 6);
 
   return (
     <div id="projects" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           WORK
         </span>
@@ -31,10 +31,11 @@ const Projects = () => {
 
       <div className="space-y-4 sm:space-y-5">
         {displayedProjects.map((project, index) => (
-          <Link
+          <article
             key={project.id}
-            href={`/work/${project.slug}`}
-            className="group block rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/30 hover:bg-[var(--bg-primary)]/80 transition-all duration-300 overflow-hidden cursor-pointer"
+            data-project-card
+            data-tilt
+            className="tilt-card group rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/30 hover:bg-[var(--bg-primary)]/80 transition-all duration-300 overflow-hidden"
           >
             <div className="p-4 sm:p-5 lg:p-6">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-3">
@@ -46,35 +47,39 @@ const Projects = () => {
                     <span className="text-[10px] sm:text-xs text-[var(--text-muted)] flex-shrink-0">0{index + 1}</span>
                   </div>
                   <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[var(--text-primary)] group-hover:text-violet-300 transition-colors duration-300">
-                    {project.name}
+                    <Link href={`/work/${project.slug}`}>{project.name}</Link>
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="inline-flex items-center gap-1 text-[10px] sm:text-xs text-violet-400 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-300"
+                  >
                     View case study
                     <FiArrowUpRight size={10} />
-                  </span>
+                  </Link>
                   {project.demo && (
-                    <span
-                      role="button"
-                      tabIndex={0}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.demo, '_blank', 'noopener,noreferrer');
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          window.open(project.demo, '_blank', 'noopener,noreferrer');
-                        }
-                      }}
-                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] rounded-lg border border-[var(--border-light)] hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300 cursor-pointer"
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] rounded-lg border border-[var(--border-light)] hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
                     >
                       Live Demo
                       <FiExternalLink size={10} />
-                    </span>
+                    </a>
+                  )}
+                  {project.links?.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-[var(--text-secondary)] bg-[var(--tag-bg)] rounded-lg border border-[var(--border-light)] hover:border-violet-500/30 hover:text-violet-300 transition-all duration-300"
+                    >
+                      GitHub
+                      <FiExternalLink size={10} />
+                    </a>
                   )}
                 </div>
               </div>
@@ -105,11 +110,11 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          </Link>
+          </article>
         ))}
       </div>
 
-      {projectsData.length > 4 && (
+      {projectsData.length > 6 && (
         <div className="flex justify-center mt-6 sm:mt-8">
           <button
             onClick={() => setShowAll(!showAll)}

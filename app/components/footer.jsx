@@ -39,14 +39,9 @@ function Footer() {
             </Link>
           </div>
 
-          <div className="text-[10px] sm:text-xs text-[var(--text-muted)]">
-            <p>&copy; {new Date().getFullYear()} Mohammad Fahad. All rights reserved.</p>
-            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-1.5 sm:mt-2">
-              <Link href="/privacy-policy" className="hover:text-[var(--text-secondary)] transition-colors">Privacy Policy</Link>
-              <span className="text-[var(--border-color)]">&middot;</span>
-              <Link href="/disclaimer" className="hover:text-[var(--text-secondary)] transition-colors">Disclaimer</Link>
-            </div>
-          </div>
+          <p className="text-[10px] sm:text-xs text-[var(--text-muted)]">
+            &copy; {new Date().getFullYear()} Mohammad Fahad. All rights reserved.
+          </p>
         </div>
       </div>
     </div>

@@ -1,5 +1,45 @@
 export const experiences = [
   {
+    id: 5,
+    slug: "eduflow-founder",
+    title: "Founder / Product Engineer",
+    company: "EduFlow (Independent Product)",
+    location: "Founder-led, Bangladesh",
+    duration: "May 2026 - Present",
+    durationShort: "(May 2026 - Present)",
+    description: "Founded and built EduFlow, a multi-tenant institution operating system for schools and madrasas. I own product scope, architecture, database design, API layer and delivery, working across authentication, RBAC, academic workflows, finance workflows and production engineering.",
+    responsibilities: [
+      "Defined product architecture and delivery roadmap for a shared multi-tenant SaaS platform with tenant isolation",
+      "Implemented Supabase RLS, server-side tenant guards and a nine-level RBAC hierarchy with capability-based navigation",
+      "Designed PostgreSQL/Prisma domain models for attendance, results, admissions, fees, finance and reporting",
+      "Built API routes and server actions with Zod validation, guarded migrations, rate limiting and Sentry monitoring",
+      "Established CI with PostgreSQL 16, unit/integration testing, Playwright coverage and deployment through Vercel",
+    ],
+    notableProjects: [
+      {
+        name: "EduFlow Multi-Tenant SaaS",
+        description: "Institution operating system with a broad API surface, an evolving Prisma migration history and a large role-aware dashboard in the local implementation",
+      },
+      {
+        name: "Academic and Finance Workflows",
+        description: "Attendance, results, fee collection, receipts, analytics and role-aware parent/student experiences",
+      },
+    ],
+    technicalDecisions: [
+      "Treated institutions as tenants with server-side access checks re-derived on every mutation",
+      "Used Prisma with PostgreSQL for relational domain modeling and guarded migration workflow",
+      "Combined Supabase Auth, RLS and application-level permissions rather than relying on client-side role checks",
+      "Separated Server Components, Server Actions and route handlers by responsibility",
+    ],
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Vitest", "Playwright", "Sentry", "GitHub Actions", "Vercel"],
+    achievements: [
+      "Built the product from first repository commit through tagged stable releases",
+      "Implemented tenant isolation and hierarchical RBAC across a large role-aware dashboard",
+      "Documented production engineering gates, security audits and performance work",
+    ],
+    lessons: "Product ownership means making architecture decisions in service of workflows, not technology for its own sake. Multi-tenant correctness requires defense in depth across database policy, server-side guards and navigation. Production readiness is a continuous verification process, not a single deployment milestone.",
+  },
+  {
     id: 1,
     slug: "vertis-digital",
     title: "Frontend Web Developer",
@@ -9,21 +49,21 @@ export const experiences = [
     durationShort: "(Aug 2023 - Oct 2024)",
     description: "At Vertis Digital, I engineered high-performance web experiences for enterprise clients including Aditya Birla Capital and healthcare platforms. I specialized in building accessible, optimized frontend architectures using modern JavaScript frameworks and CMS integrations.",
     responsibilities: [
-      "Developed and optimized React-based UI components for Aditya Birla Capital's financial services platform serving millions of users",
-      "Led migration of 'ABC of Money' blog from legacy CMS to Sitecore Headless, reducing load times by 80%+",
-      "Built accessible healthcare platform interfaces using Angular with WCAG AA compliance",
+      "Developed and optimized React-based UI components for Aditya Birla Capital's financial services platform",
+      "Contributed to the migration of 'ABC of Money' blog from legacy CMS to Sitecore Headless",
+      "Built accessible healthcare platform interfaces using Angular",
       "Engineered Vertis Digital's corporate marketing site with Sitecore CMS integration",
-      "Optimized frontend performance achieving 92+ Lighthouse scores through code splitting, image optimization, and critical CSS",
+      "Improved frontend performance with code splitting, image optimization and critical CSS",
       "Collaborated with cross-functional teams including design, backend, and QA in an agile environment",
     ],
     notableProjects: [
       {
         name: "Aditya Birla Capital Platform",
-        description: "Unified 22 financial products under a single frontend ecosystem with gamification and advanced analytics",
+        description: "Built reusable frontend components for a broad financial product ecosystem with gamification and analytics features",
       },
       {
         name: "Healthcare Vertis Digital",
-        description: "Accessible healthcare platform with WCAG AA compliance and responsive clinical workflows",
+        description: "Accessible healthcare platform with responsive clinical workflows",
       },
       {
         name: "Vertis Digital Website",
@@ -39,11 +79,11 @@ export const experiences = [
     ],
     technologies: ["React.js", "TypeScript", "Angular", "TailwindCSS", "Sitecore Headless", "JavaScript", "HTML5", "CSS3", "Figma", "Jira", "Git"],
     achievements: [
-      "Reduced page load times by 12 seconds through comprehensive frontend optimization",
-      "Migrated legacy CMS to Sitecore Headless with over 80% improvement in load times",
-      "Unified 22 distinct financial products into a single consistent user interface",
-      "Achieved WCAG AA accessibility compliance across healthcare platform interfaces",
-      "Improved Lighthouse performance score from 45 to 92 on corporate marketing site",
+      "Reduced initial bundle weight through route-level code splitting",
+      "Migrated legacy CMS content to Sitecore Headless for independent publishing",
+      "Built reusable components for a consistent financial product interface",
+      "Built accessible, keyboard-friendly healthcare platform interfaces",
+      "Optimized Core Web Vitals on the corporate marketing site",
     ],
     lessons: "Enterprise development requires balancing technical excellence with business constraints. Performance optimization is not a one-time task but a continuous discipline. Building accessible interfaces from the start is more efficient than retrofitting compliance later. CMS integration decisions have long-term implications for content editor autonomy and development velocity.",
   },
@@ -59,7 +99,7 @@ export const experiences = [
     responsibilities: [
       "Architected full frontend application using Next.js within an NX Monorepo structure",
       "Implemented efficient data fetching strategies with React Query for optimal performance",
-      "Built a reusable component library that accelerated development of new features by 40%",
+      "Built a reusable component library that kept new features consistent across the platform",
       "Managed client communications, sprint planning, and stakeholder expectations",
       "Coordinated with distributed team members across multiple time zones",
       "Established frontend coding standards and code review processes",
@@ -80,8 +120,8 @@ export const experiences = [
     technologies: ["Next.js", "TypeScript", "React Query", "TailwindCSS", "NX Monorepo", "Figma", "Vercel", "Git"],
     achievements: [
       "Delivered complex SaaS platform on schedule while managing distributed team coordination",
-      "Reduced development time for new features by 40% through component library reuse",
-      "Achieved sub-second page navigation with Next.js SSR and React Query caching",
+      "Reused shared components to keep new feature delivery consistent",
+      "Used Next.js rendering strategies and React Query caching for responsive navigation",
       "Successfully balanced technical architecture responsibilities with project management",
     ],
     lessons: "Managing both technical architecture and client relationships requires clear communication of trade-offs. Monorepo structures provide excellent code sharing but require disciplined dependency management. Building a component library early in the project lifecycle pays compounding returns as features accumulate.",
@@ -121,7 +161,7 @@ export const experiences = [
     technologies: ["React Native", "React.js", "Node.js", "Express", "MongoDB", "REST APIs", "JavaScript", "Git"],
     achievements: [
       "Promoted from mobile developer to full-stack contributor within 3 months of internship start",
-      "Shipped production React Native features used by hundreds of startup founders",
+      "Shipped production React Native features for the SeedStages platform",
       "Contributed to both web and mobile production codebases end-to-end",
     ],
     lessons: "In startup environments, the ability to learn quickly and contribute across the stack is more valuable than deep specialization in a single technology. Writing clean, well-documented code is essential for distributed team collaboration across time zones.",
