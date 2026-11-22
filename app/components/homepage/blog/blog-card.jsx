@@ -6,7 +6,7 @@ import { BsHeartFill } from 'react-icons/bs';
 
 function BlogCard({ blog }) {
   return (
-    <div className="group rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden">
+    <div data-reveal data-tilt className="tilt-card group rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 hover:border-violet-500/20 transition-all duration-300 overflow-hidden">
       <div className="h-40 sm:h-44 lg:h-48 overflow-hidden">
         {blog?.thumbnail && (
           <Image

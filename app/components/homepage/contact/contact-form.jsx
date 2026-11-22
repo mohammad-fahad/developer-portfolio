@@ -48,10 +48,12 @@ export default function ContactForm() {
           If you have any questions or work inquiries, feel free to contact me.
         </p>
 
-        <div className="mt-6 flex flex-col gap-4">
+        <form onSubmit={handleSendMail} noValidate className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Name:</label>
+            <label htmlFor="contact-name" className="text-base">Your Name:</label>
             <input
+              id="contact-name"
+              name="name"
               type="text"
               value={userInput.name}
               onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
@@ -63,8 +65,10 @@ export default function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Email:</label>
+            <label htmlFor="contact-email" className="text-base">Your Email:</label>
             <input
+              id="contact-email"
+              name="email"
               type="email"
               value={userInput.email}
               onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
@@ -77,8 +81,10 @@ export default function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Message:</label>
+            <label htmlFor="contact-message" className="text-base">Your Message:</label>
             <textarea
+              id="contact-message"
+              name="message"
               value={userInput.message}
               onChange={(e) => setUserInput({ ...userInput, message: e.target.value })}
               onBlur={checkRequired}
@@ -92,14 +98,14 @@ export default function ContactForm() {
           <div className="flex flex-col items-center gap-3">
             {error.required && <p className="text-sm text-red-400">All fields are required!</p>}
             <button
-              onClick={handleSendMail}
+              type="submit"
               disabled={isLoading}
               className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-violet-600 to-violet-500 px-5 md:px-12 py-2.5 md:py-3 text-white font-medium uppercase hover:from-violet-500 hover:to-violet-400 transition-all duration-300"
             >
               {isLoading ? "Sending Message..." : <><span>Send Message</span><TbMailForward size={20} /></>}
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

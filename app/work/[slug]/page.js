@@ -8,8 +8,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  const project = projectsData.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const project = projectsData.find((p) => p.slug === slug);
   if (!project) return {};
   return {
     title: `${project.name} — Mohammad Fahad`,
@@ -17,8 +18,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ProjectPage({ params }) {
-  const project = projectsData.find((p) => p.slug === params.slug);
+export default async function ProjectPage({ params }) {
+  const { slug } = await params;
+  const project = projectsData.find((p) => p.slug === slug);
   if (!project) notFound();
   return <ProjectDetail project={project} />;
 }

@@ -7,7 +7,7 @@ import { FiCalendar } from "react-icons/fi";
 function Education() {
   return (
     <div id="education" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           LEARNING
         </span>
@@ -28,7 +28,7 @@ function Education() {
 
         <div className="space-y-4 sm:space-y-6">
           {educations.map((edu) => (
-            <div key={edu.id} className="relative flex items-start gap-4 sm:gap-8 group">
+            <div key={edu.id} data-reveal className="relative flex items-start gap-4 sm:gap-8 group">
               <div className="relative z-10 flex-shrink-0 mt-0.5 sm:mt-1">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[var(--section-header-bg)] border-2 border-violet-500/30 flex items-center justify-center group-hover:border-violet-400 transition-colors duration-300">
                   <BsBook className="text-violet-400" size={14} />

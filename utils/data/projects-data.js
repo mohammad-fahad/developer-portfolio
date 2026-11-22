@@ -225,8 +225,8 @@ export const projectsData = [
         solution: "Architected the frontend using Next.js within an NX Monorepo to share code between web and potential mobile applications. Implemented React Query for efficient server state management, reducing boilerplate and improving cache invalidation. Created a reusable component library that accelerated development of new features. Established clear communication channels and sprint planning processes for the distributed team.",
         outcomes: [
             "Delivered platform on schedule while managing distributed team coordination",
-            "Reduced development time for new features by 40% through component library reuse",
-            "Achieved sub-second page navigation with Next.js and React Query caching",
+            "Reused shared components to keep new feature delivery consistent",
+            "Used Next.js rendering strategies and React Query caching for responsive navigation",
             "Successfully managed client expectations through transparent communication",
         ],
         engineeringDecisions: [
@@ -256,15 +256,15 @@ export const projectsData = [
         slug: "healthcare-vertis",
         name: "Healthcare Vertis Digital",
         client: "Vertis Digital",
-        description: "Designed and developed accessible healthcare platform interfaces using Angular. Focused on creating intuitive user experiences for medical professionals and patients, implementing responsive layouts and WCAG-compliant components to improve healthcare accessibility across devices.",
-        extendedDescription: "A healthcare platform designed to improve patient-provider communication and streamline clinical workflows. Built for medical professionals and patients, the platform required strict adherence to accessibility standards while maintaining a modern, intuitive interface.",
-        challenge: "Healthcare interfaces demand high accessibility standards (WCAG AA+) while serving users with varying technical literacy. The platform needed to work seamlessly across desktop, tablet, and mobile devices used in clinical settings. Patient data sensitivity required careful UX decisions around information display.",
-        solution: "Developed a component library with WCAG AA compliance built in from the start — proper ARIA labels, keyboard navigation, color contrast, and screen reader support. Used Angular's reactive forms with comprehensive validation for data entry accuracy. Designed responsive layouts that adapted to different clinical workflows — from desktop nurse stations to mobile patient check-in.",
+        description: "Designed and developed accessible healthcare platform interfaces using Angular. Focused on intuitive experiences for medical professionals and patients, with responsive layouts and accessible component patterns across devices.",
+        extendedDescription: "A healthcare platform designed to improve patient-provider communication and streamline clinical workflows. Built for medical professionals and patients, the platform required careful accessibility and UX decisions while maintaining a modern, intuitive interface.",
+        challenge: "Healthcare interfaces need to serve users with varying technical literacy across desktop, tablet and mobile devices used in clinical settings. Patient data sensitivity required careful UX decisions around information display.",
+        solution: "Developed accessible component patterns including ARIA labels, keyboard navigation and readable contrast. Used Angular reactive forms with validation for data entry accuracy, and designed responsive layouts for different clinical workflows.",
         outcomes: [
-            "Achieved WCAG AA compliance across all platform interfaces",
-            "Improved patient check-in time by 60% with streamlined mobile flow",
-            "Reduced form entry errors by 35% through validation and UX improvements",
-            "Platform adopted across multiple clinic locations",
+            "Built accessible, keyboard-friendly healthcare interfaces",
+            "Streamlined the mobile check-in flow for clinical use",
+            "Added validation to reduce data-entry mistakes",
+            "Supported responsive use across desktop, tablet and mobile",
         ],
         engineeringDecisions: [
             "Angular chosen for its built-in accessibility features and form handling",
@@ -273,7 +273,7 @@ export const projectsData = [
             "Responsive design prioritized mobile-first for clinical mobility",
         ],
         highlights: [
-            "Built accessible, WCAG-compliant healthcare interfaces",
+            "Built accessible healthcare interfaces",
             "Developed responsive components for multi-device support",
             "Collaborated with UX team on usability improvements",
         ],
@@ -282,13 +282,11 @@ export const projectsData = [
         images: ["/projects/healthcare.png"],
         technologies: {
             frontend: ["Angular", "TypeScript", "CSS"],
-            design: ["Figma", "WCAG Accessibility", "Responsive Design"],
+            design: ["Figma", "Accessible UI", "Responsive Design"],
             testing: ["Karma", "Jasmine"],
         },
-        demo: "https://healthcare.vertis.digital/",
-        links: {
-            website: "https://healthcare.vertis.digital/",
-        },
+        demo: "",
+        links: {},
     },
     {
         id: 4,
@@ -339,8 +337,8 @@ export const projectsData = [
         challenge: "As an intern in a globally distributed team, I needed to rapidly ramp up on multiple technologies and codebases. The mobile app required careful platform-specific handling for both iOS and Android. The startup environment meant priorities shifted frequently and I needed to be adaptable.",
         solution: "Focused on writing clean, well-documented code that team members in different time zones could easily review and maintain. Proactively sought feedback and took ownership of features from design through deployment. Learned Node.js and Express to contribute to API development, eventually taking on full-stack tasks.",
         outcomes: [
-            "Promoted from mobile developer to full-stack contributor within 3 months",
-            "Shipped React Native features used by hundreds of startup founders",
+            "Expanded from mobile development into full-stack contribution during the internship",
+            "Shipped React Native features for the SeedStages platform",
             "Contributed to both web and mobile production codebases",
             "Gained end-to-end product development experience in a startup environment",
         ],
@@ -375,10 +373,10 @@ export const projectsData = [
         challenge: "Production mobile apps require rigorous testing across multiple device configurations. Performance optimization for lower-end Android devices was critical. Integrating third-party services like Firebase and ReCaptcha while maintaining a smooth user experience required careful engineering. Coordinating with design, backend, and QA teams in a fast-paced environment.",
         solution: "Implemented performance profiling and optimization specifically for mid-range Android devices, reducing frame drops by optimizing React Native bridge calls and image loading. Integrated Firebase for analytics, crash reporting, and push notifications. Used ReCaptcha for user verification without disrupting the app flow. Established regular sync meetings with cross-functional teams for smooth delivery.",
         outcomes: [
-            "Successfully deployed apps to both Google Play and Apple App Store",
-            "Reduced crash rate by 40% through systematic error tracking and resolution",
-            "Improved app launch time by 50% through performance optimization",
-            "Integrated analytics providing actionable user behavior insights",
+            "Deployed production apps to both Google Play and Apple App Store",
+            "Used systematic error tracking and resolution to improve stability",
+            "Profiled and optimized rendering and image loading for mid-range devices",
+            "Integrated analytics for user behavior insights",
         ],
         engineeringDecisions: [
             "React Native for cross-platform code sharing and faster iterations",
@@ -399,9 +397,7 @@ export const projectsData = [
             services: ["Firebase", "REST APIs", "ReCaptcha"],
             tools: ["Styled Components", "Git", "Jira"],
         },
-        demo: "https://micple.com/signup",
-        links: {
-            website: "https://micple.com/signup",
-        },
+        demo: "",
+        links: {},
     },
 ];

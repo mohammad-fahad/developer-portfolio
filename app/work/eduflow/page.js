@@ -22,11 +22,11 @@ import ScreenshotGallery from "@/app/components/case-study/screenshot-gallery";
 export const metadata = {
   title: "EduFlow — Multi-tenant Institution Operating System | Mohammad Fahad",
   description:
-    "A full-stack SaaS platform designed to help schools, madrasas, and educational institutions manage operations through role-based workflows, automation, and centralized data. Built with Next.js, TypeScript, Prisma, and PostgreSQL.",
+    "A founder-led, multi-tenant education ERP platform in active development, built with Next.js, TypeScript, Prisma and PostgreSQL. Explore the architecture, role model, workflows and engineering decisions behind EduFlow.",
   openGraph: {
     title: "EduFlow — Multi-tenant Institution Operating System | Mohammad Fahad",
     description:
-      "A full-stack SaaS platform designed to help schools, madrasas, and educational institutions manage operations through role-based workflows, automation, and centralized data.",
+      "A founder-led, multi-tenant education ERP platform in active development, built with Next.js, TypeScript, Prisma and PostgreSQL.",
     url: "/work/eduflow",
     images: [{ url: "/card.png", width: 1200, height: 630, alt: "EduFlow Case Study" }],
   },
@@ -34,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "EduFlow — Multi-tenant Institution Operating System | Mohammad Fahad",
     description:
-      "A full-stack SaaS platform designed to help schools, madrasas, and educational institutions manage operations through role-based workflows, automation, and centralized data.",
+      "A founder-led, multi-tenant education ERP platform in active development, built with Next.js, TypeScript, Prisma and PostgreSQL.",
     images: ["/card.png"],
   },
 };
@@ -108,10 +108,11 @@ function EduFlowCaseStudy() {
             <Link
               href="https://www.tryeduflow.com/"
               target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-violet-500 rounded-full hover:from-violet-500 hover:to-violet-400 transition-all duration-300 shadow-lg shadow-violet-500/20"
             >
               <BiWorld size={14} />
-              View Production App
+              Visit EduFlow
               <FiArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -124,8 +125,8 @@ function EduFlowCaseStudy() {
                 {[
                   "Multi-tenant architecture with institution-level data isolation",
                   "Role-based access control with a 9-level role hierarchy",
-                  "Unified academic, financial, and communication workflows",
-                  "Production-grade security, testing, and CI/CD pipeline",
+                  "Academic, fee and communication workflows in active development",
+                  "Server-side tenant checks, testing and CI/CD pipeline",
                   "Built with Next.js App Router, TypeScript, Prisma, PostgreSQL",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-secondary)]">
@@ -179,9 +180,9 @@ function EduFlowCaseStudy() {
             <ul className="space-y-2 sm:space-y-2.5">
               {[
                 "Single platform for attendance, records, fees, and communication",
-                "Role-specific dashboards for each stakeholder type",
-                "Real-time data synchronization across all modules",
-                "Automated workflows reducing manual administrative work",
+                 "Role-aware views for each stakeholder type",
+                 "Shared data model across academic, fee and communication modules",
+                 "Workflow automation for recurring administrative tasks",
                 "Scalable architecture serving multiple institutions from one codebase",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[var(--text-muted)]">
@@ -227,8 +228,8 @@ function EduFlowCaseStudy() {
             <div className="rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)]/60 p-4 sm:p-5">
               <h3 className="text-[var(--text-primary)] font-semibold text-xs sm:text-sm mb-2 sm:mb-3">Role Hierarchy</h3>
               <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed">
-                Permission-driven access control with a 9-level role hierarchy. Each active role has
-                granular permissions that can be customized per institution.
+                Permission-driven access control with a 9-level role hierarchy. Access is re-derived on the
+                server for each request and enforced through tenant and branch scopes.
               </p>
             </div>
           </div>
@@ -256,7 +257,7 @@ function EduFlowCaseStudy() {
             title="RBAC Permission System"
             decision="Built a hierarchical role system instead of hardcoded dashboards. Active roles include Super Admin, Owner, Moderator, Finance, Branch Moderator, Branch Finance, Teacher, Parent and Student."
             why="Educational institutions have complex organizational structures that require flexible, granular access control."
-            impact="Each user sees exactly what they need — no more, no less. New roles can be added without code changes."
+             impact="Each user sees the workflows permitted for their role, with server-side checks behind every mutation."
           />
           <DecisionCard
             title="TypeScript Throughout"
@@ -298,13 +299,13 @@ function EduFlowCaseStudy() {
             title="Multi-Tenant Data Isolation"
             challenge="Multiple institutions use one SaaS platform while keeping data securely separated. A data leak between tenants would be catastrophic."
             approach="Designed institution ownership boundaries with tenant-aware database queries, Row-Level Security policies, and middleware-level tenant context injection."
-            impact="Created a scalable foundation for supporting multiple organizations from a single codebase with zero data leakage risk."
+             impact="Created a scalable foundation for supporting multiple organizations from a single codebase with clear tenant boundaries."
           />
           <ChallengeCard
             title="Flexible RBAC System"
             challenge="Different institution roles require completely different workflows and data access. Hardcoded dashboards would not scale across diverse institution types."
-            approach="Built a permission-driven access control system with a 9-level role hierarchy, each with granular permissions configurable per institution."
-            impact="Allowed future role expansion without code changes. Each user sees exactly the interface and data their role permits."
+             approach="Built a permission-driven access control system with a 9-level role hierarchy, tenant and branch scopes, and server-side checks on mutations."
+             impact="Each user sees the interface and data their role permits, with a single place to govern permission changes."
           />
           <ChallengeCard
             title="Production Reliability"
@@ -328,7 +329,7 @@ function EduFlowCaseStudy() {
         <SectionHeader
           label="FEATURE SHOWCASE"
           title="Capabilities across the platform"
-          description="EduFlow provides end-to-end functionality for every aspect of institution management."
+          description="Shipped foundations and active work across core institution operations. Full accounting, HRMS/LMS, payment-provider adapters and a website builder remain roadmap items."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -336,22 +337,22 @@ function EduFlowCaseStudy() {
             icon={<BsBook size={18} />}
             title="Academic Management"
             items={[
-              "Student enrollment and records",
-              "Teacher assignment and scheduling",
-              "Attendance tracking with reports",
-              "Class and section management",
-              "Academic calendar and timetables",
+              "Student records and lifecycle events",
+              "Teacher and subject assignments",
+              "Attendance marking and history",
+              "Marks entry, moderation and publishing",
+              "Homework with rubric-based grading",
             ]}
           />
           <FeatureCard
             icon={<BsCashCoin size={18} />}
-            title="Financial Operations"
+            title="Fee Operations"
             items={[
-              "Fee structure and collection",
+              "Fee collection workflow",
               "Payment tracking and receipts",
-              "Transaction history and audit logs",
-              "Financial reporting and analytics",
-              "Discount and scholarship management",
+              "Refunds and reconciliation",
+              "Operational income/expense records",
+              "Full double-entry accounting remains roadmap",
             ]}
           />
           <FeatureCard
@@ -359,9 +360,9 @@ function EduFlowCaseStudy() {
             title="Communication"
             items={[
               "Notice board for announcements",
-              "In-app notification system",
-              "Email notifications",
-              "Push notifications",
+              "In-app notifications",
+              "Governed email campaigns via Resend",
+              "SMS/provider abstractions",
               "Role-targeted messaging",
             ]}
           />
@@ -410,7 +411,7 @@ function EduFlowCaseStudy() {
         <SectionHeader
           label="SCREENSHOTS"
           title="Platform walkthrough"
-          description="Production screenshots showing the core workflows and interfaces across the EduFlow platform."
+          description="Captured from the local product build, these views show representative workflows and interfaces across EduFlow."
         />
         <ScreenshotGallery
           screenshots={[
@@ -435,7 +436,7 @@ function EduFlowCaseStudy() {
               image: "/images/work/eduflow/screenshots/students.webp",
               title: "Student Management",
               description:
-                "Complete student lifecycle management including enrollment, records, academic tracking, and parent communication.",
+                "Student records, lifecycle events, academic tracking and guardian links.",
               category: "Academics",
             },
             {
@@ -443,7 +444,7 @@ function EduFlowCaseStudy() {
               image: "/images/work/eduflow/screenshots/finance.webp",
               title: "Financial Operations",
               description:
-                "Complete fee collection, payment verification, transaction history, and financial reporting system.",
+                "Fee collection, payment tracking, receipts and operational reconciliation workflows.",
               category: "Finance",
             },
             {

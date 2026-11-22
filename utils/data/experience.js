@@ -18,7 +18,7 @@ export const experiences = [
     notableProjects: [
       {
         name: "EduFlow Multi-Tenant SaaS",
-        description: "Institution operating system with 129 API route handlers, 91 Prisma migrations and 34 dashboard feature areas in the local implementation",
+        description: "Institution operating system with a broad API surface, an evolving Prisma migration history and a large role-aware dashboard in the local implementation",
       },
       {
         name: "Academic and Finance Workflows",
@@ -51,7 +51,7 @@ export const experiences = [
     responsibilities: [
       "Developed and optimized React-based UI components for Aditya Birla Capital's financial services platform",
       "Contributed to the migration of 'ABC of Money' blog from legacy CMS to Sitecore Headless",
-      "Built accessible healthcare platform interfaces using Angular with WCAG AA compliance",
+      "Built accessible healthcare platform interfaces using Angular",
       "Engineered Vertis Digital's corporate marketing site with Sitecore CMS integration",
       "Improved frontend performance with code splitting, image optimization and critical CSS",
       "Collaborated with cross-functional teams including design, backend, and QA in an agile environment",
@@ -63,7 +63,7 @@ export const experiences = [
       },
       {
         name: "Healthcare Vertis Digital",
-        description: "Accessible healthcare platform with WCAG AA compliance and responsive clinical workflows",
+        description: "Accessible healthcare platform with responsive clinical workflows",
       },
       {
         name: "Vertis Digital Website",
@@ -82,7 +82,7 @@ export const experiences = [
       "Reduced initial bundle weight through route-level code splitting",
       "Migrated legacy CMS content to Sitecore Headless for independent publishing",
       "Built reusable components for a consistent financial product interface",
-      "Achieved WCAG AA accessibility compliance across healthcare platform interfaces",
+      "Built accessible, keyboard-friendly healthcare platform interfaces",
       "Optimized Core Web Vitals on the corporate marketing site",
     ],
     lessons: "Enterprise development requires balancing technical excellence with business constraints. Performance optimization is not a one-time task but a continuous discipline. Building accessible interfaces from the start is more efficient than retrofitting compliance later. CMS integration decisions have long-term implications for content editor autonomy and development velocity.",
@@ -99,7 +99,7 @@ export const experiences = [
     responsibilities: [
       "Architected full frontend application using Next.js within an NX Monorepo structure",
       "Implemented efficient data fetching strategies with React Query for optimal performance",
-      "Built a reusable component library that accelerated development of new features by 40%",
+      "Built a reusable component library that kept new features consistent across the platform",
       "Managed client communications, sprint planning, and stakeholder expectations",
       "Coordinated with distributed team members across multiple time zones",
       "Established frontend coding standards and code review processes",
@@ -120,8 +120,8 @@ export const experiences = [
     technologies: ["Next.js", "TypeScript", "React Query", "TailwindCSS", "NX Monorepo", "Figma", "Vercel", "Git"],
     achievements: [
       "Delivered complex SaaS platform on schedule while managing distributed team coordination",
-      "Reduced development time for new features by 40% through component library reuse",
-      "Achieved sub-second page navigation with Next.js SSR and React Query caching",
+      "Reused shared components to keep new feature delivery consistent",
+      "Used Next.js rendering strategies and React Query caching for responsive navigation",
       "Successfully balanced technical architecture responsibilities with project management",
     ],
     lessons: "Managing both technical architecture and client relationships requires clear communication of trade-offs. Monorepo structures provide excellent code sharing but require disciplined dependency management. Building a component library early in the project lifecycle pays compounding returns as features accumulate.",
@@ -161,7 +161,7 @@ export const experiences = [
     technologies: ["React Native", "React.js", "Node.js", "Express", "MongoDB", "REST APIs", "JavaScript", "Git"],
     achievements: [
       "Promoted from mobile developer to full-stack contributor within 3 months of internship start",
-      "Shipped production React Native features used by hundreds of startup founders",
+      "Shipped production React Native features for the SeedStages platform",
       "Contributed to both web and mobile production codebases end-to-end",
     ],
     lessons: "In startup environments, the ability to learn quickly and contribute across the stack is more valuable than deep specialization in a single technology. Writing clean, well-documented code is essential for distributed team collaboration across time zones.",

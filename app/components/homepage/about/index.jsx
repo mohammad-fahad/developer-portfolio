@@ -6,7 +6,7 @@ import Image from "next/image";
 function AboutSection() {
   return (
     <div id="about" className="relative z-50 my-16 lg:my-28">
-      <div className="flex items-center justify-start relative mb-8 sm:mb-12">
+      <div data-reveal className="flex items-center justify-start relative mb-8 sm:mb-12">
         <span className="bg-[var(--section-header-bg)] absolute left-0 w-fit text-[var(--text-primary)] px-3 sm:px-5 py-2 sm:py-3 text-base sm:text-xl rounded-md">
           ABOUT
         </span>
@@ -26,7 +26,7 @@ function AboutSection() {
           </div>
         </div>
         <div className="lg:col-span-2 flex justify-center order-1 lg:order-2 mb-4 lg:mb-0">
-          <div className="relative group w-full max-w-[320px] sm:max-w-none">
+          <div data-reveal data-tilt className="tilt-card relative group w-full max-w-[320px] sm:max-w-none">
             <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-violet-400 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
             <div className="relative rounded-2xl overflow-hidden border border-[var(--border-color)]">
               <Image

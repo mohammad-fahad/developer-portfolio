@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mohammadfahad.com/sitemap.xml
+Sitemap: https://portfolio-of-mohammadfahad.netlify.app/sitemap.xml
