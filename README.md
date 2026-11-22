@@ -1,6 +1,4 @@
-<p align="center" width="100%">
-    <img height="100" src="https://github.com/mohammad-fahad/developer-portfolio/blob/main/app/assets/free-palestine.jpg" alt="github-image">
-</p>
+
 
 ---
 
@@ -13,13 +11,7 @@
 #### Showcase your skills, projects, and experience with a professional portfolio website.  
 This template is user-friendly, easily customizable, and perfect for developers or freelancers looking to present their work effectively.
 
----
 
-# Demo :movie_camera:
-
-![Portfolio Screenshot](./public/image/screen.png)
-
-View live demo [here](https://portfolio-of-mohammadfahad.netlify.app/).
 
 ---
 
