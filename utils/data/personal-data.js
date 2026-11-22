@@ -16,5 +16,5 @@ Currently building EduFlow, with selected work across full-stack, fintech and 3D
   twitter: "https://x.com/Mohamma52324377",
   facebook: "https://www.facebook.com/mohammad.fahad.f",
   devUsername: "mohammad-fahad",
-  resume: "https://drive.google.com/file/d/1duEdfhbiR5kRuJ-AR7hpqkEG83I2XkU_/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1GZBKPDNLXy42CtxFJtMmA-Nqqe-bHq7U/view?usp=sharing",
 };
